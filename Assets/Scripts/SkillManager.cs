@@ -31,8 +31,8 @@ public class SkillManager : MonoBehaviour
     }
     public void UpdateStats()
     {
-        StatsText.text = Stats.PlayerName + "\n Level : " + Stats.Level + "\n HP : " + Stats.HP + "-" + Stats.MaxHP + "\n MP : " + Stats.MP + "-" + Stats.MaxMP + "\n Melee Strength : " + Stats.Strength + "\n Ranged Strength : " + Stats.Skill + "\n Magic Strength : " + Stats.Will + "\n Hit Chance : " + Stats.HitChance + "% \n Dodge Chance : " + Stats.DodgeChance + "%";
-        SkillsText.text = "XP : " + Stats.XP + "-" + Stats.MaxXP + "\n Skill Points : " + Stats.SkillPoints + "\n Vitality : " + Stats.Vitality + "\n Strength : " + Stats.Strength + "\n Skill : " + Stats.Skill + "\n Will : " + Stats.Will + "\n Accuracy : " + Stats.Accuracy + "\n Speed : " + Stats.Speed;
+        StatsText.text = Stats.PlayerName + "\n Level : " + Stats.Level + "\n HP : " + Stats.HP + "/" + Stats.MaxHP + "\n MP : " + Stats.MP + "/" + Stats.MaxMP + "\n Melee Strength : " + Stats.MeleeDamage + "\n Ranged Strength : " + Stats.RangeDamage + "\n Magic Strength : " + Stats.MagicDamage + "\n Hit Chance : " + Stats.HitChance + "% \n Dodge Chance : " + Stats.DodgeChance + "%";
+        SkillsText.text = "XP : " + Stats.XP + "/" + Stats.MaxXP + "\n Skill Points : " + Stats.SkillPoints + "\n Vitality : " + Stats.Vitality + "\n Strength : " + Stats.Strength + "\n Skill : " + Stats.Skill + "\n Will : " + Stats.Will + "\n Accuracy : " + Stats.Accuracy + "\n Speed : " + Stats.Speed;
         Stats.UpdateStats();
     }
     public void OpenMenu()

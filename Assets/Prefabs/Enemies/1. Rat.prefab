@@ -45,10 +45,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyName: Rat
   BattleSprite: {fileID: 5271992901840271332, guid: e90e94081292d58468123005deba457b, type: 3}
-  Level: 1
   Speed: 1
-  Damage: 2
-  MaxHP: 5
-  HP: 5
-  XP: 5
+  MinDamage: 1
+  MaxDamage: 2
+  MaxHP: 4
+  HP: 4
+  XP: 2
+  Gold: 2
   Dead: 0

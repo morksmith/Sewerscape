@@ -30,12 +30,12 @@ public class PlayerControl : MonoBehaviour
             if (dmg < Stats.HP)
             {
                 Stats.HP -= dmg;
-                BattleText.SendText(e.EnemyName + " deals " + dmg + " damage to " + Stats.PlayerName + "!");
+                BattleText.SendText(e.EnemyName + " dealt " + dmg + " damage to " + Stats.PlayerName + "!");
             }
             else
             {
                 Stats.HP = 0;
-                BattleText.SendText(e.EnemyName + " deals " + dmg + " damage to " + Stats.PlayerName + "\n" + "Player passes out!");
+                BattleText.SendText(e.EnemyName + " dealt " + dmg + " damage to " + Stats.PlayerName + "\n" + "Player passes out!");
                 Dead = true;
             }
         }

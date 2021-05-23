@@ -26,8 +26,8 @@ public class GameManager : MonoBehaviour
                 GameManager.Paused = true;
                 LevelUpMessage.Sentences.Clear();
                 LevelUpMessage.Sentences.Add(PlayerStats.PlayerName + " reached level " + PlayerStats.Level + "!");
-                LevelUpMessage.Sentences.Add("Health restored! Skill point awarded!");
-                LevelUpMessage.Sentences.Add(PlayerStats.MaxXP.ToString() + "XP points until next level");
+                LevelUpMessage.Sentences.Add("3 skill points gained!");
+                LevelUpMessage.Sentences.Add((PlayerStats.MaxXP - PlayerStats.XP).ToString() + "XP points until next level");
                 GameText.StartDialogue(LevelUpMessage);
             }
         }

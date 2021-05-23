@@ -107,7 +107,7 @@ public class BattleManager : MonoBehaviour
 
     public void StartBattle(Enemy e)
     {
-        if (e.Speed > PlayerStats.Speed)
+        if (e.Speed > PlayerStats.TurnOrder)
         {
             PlayerTurn = false;
         }
@@ -117,7 +117,7 @@ public class BattleManager : MonoBehaviour
         }
         TargetEnemy = e;
         EnemySprite.enabled = true;
-        BattleText.SendText(TargetEnemy.EnemyName + " attacks " + PlayerStats.PlayerName + "!");
+        BattleText.SendText(TargetEnemy.EnemyName + " attacked " + PlayerStats.PlayerName + "!");
         EnemySprite.sprite = TargetEnemy.BattleSprite;
         turnTimer = 0;
         ActionMenu.SetActive(false);
@@ -135,7 +135,7 @@ public class BattleManager : MonoBehaviour
     }
     public void StartTurn()
     {
-        if (TargetEnemy.Speed > PlayerStats.Speed)
+        if (TargetEnemy.Speed > PlayerStats.TurnOrder)
         {
             PlayerTurn = false;
             turnTimer = 0;
@@ -165,7 +165,7 @@ public class BattleManager : MonoBehaviour
             if (EquippedWeapon == null)
             {
                 dmg = Random.Range(1, 3);
-                dmg = Mathf.CeilToInt(dmg);
+                dmg = Mathf.CeilToInt(dmg) * Player.Stats.MeleeDamage;
                 e.TakeDamage(dmg, BattleText, Player);
             }
             else
@@ -174,24 +174,24 @@ public class BattleManager : MonoBehaviour
                 dmg = Mathf.Clamp(dmg, 1, 999);
                 if (EquippedWeapon.Type == Weapon.WeaponType.Magic)
                 {
-                    dmg += Stats.Will;
+                    dmg *= Stats.MagicDamage;
                 }
                 else if (EquippedWeapon.Type == Weapon.WeaponType.Melee)
                 {
-                    dmg += Stats.Strength;
+                    dmg *= Stats.MeleeDamage;
                 }
                 else if (EquippedWeapon.Type == Weapon.WeaponType.Ranged)
                 {
-                    dmg += Stats.Skill;
+                    dmg *= Stats.RangeDamage;
                 }
             }
         }
-        float critChance = Random.Range(0, 60);
-        if (critChance < 1 + Stats.Skill)
+        float critChance = Random.Range(0, 20);
+        if (critChance < 1 + Stats.CritBonus)
         {
             dmg *= 2.5f;
             dmg = Mathf.CeilToInt(dmg);
-            BattleText.SendText("Critical Hit!" + "\n" + PlayerStats.PlayerName + " deals " + dmg + " damage to " + e.EnemyName + "!");
+            BattleText.SendText("Critical Hit!" + "\n" + PlayerStats.PlayerName + " daelt " + dmg + " damage to " + e.EnemyName + "!");
             e.TakeDamage(dmg, BattleText, Player);
             EnemyEffects.Flash(Color.red);
             turnTimer = 0;
@@ -199,7 +199,7 @@ public class BattleManager : MonoBehaviour
         else
         {
             dmg = Mathf.CeilToInt(dmg);
-            BattleText.SendText(PlayerStats.PlayerName + " deals " + dmg + " damage to " + e.EnemyName + "!");
+            BattleText.SendText(PlayerStats.PlayerName + " dealt " + dmg + " damage to " + e.EnemyName + "!");
             e.TakeDamage(dmg, BattleText, Player);
             EnemyEffects.Flash(Color.red);
             turnTimer = 0;

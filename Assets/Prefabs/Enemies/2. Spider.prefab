@@ -45,10 +45,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyName: Spider
   BattleSprite: {fileID: 482294736346426456, guid: e90e94081292d58468123005deba457b, type: 3}
-  Level: 1
   Speed: 2
-  Damage: 3
-  MaxHP: 8
-  HP: 8
-  XP: 8
+  MinDamage: 1
+  MaxDamage: 4
+  MaxHP: 6
+  HP: 6
+  XP: 3
+  Gold: 4
   Dead: 0

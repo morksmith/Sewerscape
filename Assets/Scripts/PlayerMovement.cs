@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 targetPos;
     public EnemyManager EnemyManager;
     private Ray moveVector;
+    private Ray enemyVector;
     private RaycastHit hit;
 
     // Start is called before the first frame update
@@ -63,21 +64,25 @@ public class PlayerMovement : MonoBehaviour
                 if (Input.GetAxis("Horizontal") > 0 || Joystick.Horizontal > 0.5f)
                 {
                     moveVector = new Ray(transform.position + Vector3.right + (Vector3.up * 2), Vector3.down);
+                    enemyVector = new Ray(transform.position + Vector3.right + (Vector3.up * -2), Vector3.up);
                     PlayerMesh.eulerAngles = new Vector3(0, 90, 0);
                 }
                 if (Input.GetAxis("Horizontal") < 0 || Joystick.Horizontal < -0.5f)
                 {
                     moveVector = new Ray(transform.position - Vector3.right + (Vector3.up * 2), Vector3.down);
+                    enemyVector = new Ray(transform.position - Vector3.right + (Vector3.up * -2), Vector3.up);
                     PlayerMesh.eulerAngles = new Vector3(0, -90, 0);
                 }
                 if (Input.GetAxis("Vertical") > 0 || Joystick.Vertical > 0.5f)
                 {
                     moveVector = new Ray(transform.position + Vector3.forward + (Vector3.up * 2), Vector3.down);
+                    enemyVector = new Ray(transform.position + Vector3.forward + (Vector3.up * -2), Vector3.up);
                     PlayerMesh.eulerAngles = new Vector3(0, 0, 0);
                 }
                 if (Input.GetAxis("Vertical") < 0 || Joystick.Vertical < -0.5f)
                 {
                     moveVector = new Ray(transform.position - Vector3.forward + (Vector3.up * 2), Vector3.down);
+                    enemyVector = new Ray(transform.position - Vector3.forward + (Vector3.up * -2), Vector3.up);
                     PlayerMesh.eulerAngles = new Vector3(0, 180, 0);
                 }
 
@@ -91,13 +96,6 @@ public class PlayerMovement : MonoBehaviour
                     CurrentInteractive = null;
 
                 }
-                else if (hit.transform.tag == "Enemy")
-                {
-                    OverEnemy = true;
-                    targetPos = new Vector3(Mathf.RoundToInt(hit.point.x), 0, Mathf.RoundToInt(hit.point.z));
-                    CurrentInteractive = null;
-
-                }
                 else if (hit.transform.tag == "Interactive")
                 {
                     CurrentInteractive = hit.transform;
@@ -108,7 +106,15 @@ public class PlayerMovement : MonoBehaviour
                     CurrentInteractive = null;
                 }
             }
-
+            if (Physics.Raycast(enemyVector, out hit))
+            {
+                if(hit.transform.tag == "Enemy")
+                {
+                    OverEnemy = true;
+                    CurrentInteractive = null;
+                }
+                
+            }
         }
         else
         {
