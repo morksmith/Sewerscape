@@ -67,7 +67,8 @@ public class BattleManager : MonoBehaviour
                         PlayerTurn = true;
                         ActionMenu.SetActive(false);
                         BattleCanvas.Active = false;
-                        GameCanvas.Active = true;
+                        GameCanvas.Active = false;
+                        GameManager.Paused = true;
                     }
                 }
             }
@@ -191,7 +192,7 @@ public class BattleManager : MonoBehaviour
         {
             dmg *= 2.5f;
             dmg = Mathf.CeilToInt(dmg);
-            BattleText.SendText("Critical Hit!" + "\n" + PlayerStats.PlayerName + " daelt " + dmg + " damage to " + e.EnemyName + "!");
+            BattleText.SendText("Critical Hit!" + "\n" + PlayerStats.PlayerName + " dealt " + dmg + " damage to " + e.EnemyName + "!");
             e.TakeDamage(dmg, BattleText, Player);
             EnemyEffects.Flash(Color.red);
             turnTimer = 0;

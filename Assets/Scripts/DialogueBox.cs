@@ -10,6 +10,7 @@ public class DialogueBox : MonoBehaviour
     public TextMeshProUGUI TMP;
     public bool DialogueStarted = false;
     public GameObject ActionMenu;
+    public PlayerControl PlayerControl;
     public Dialogue CurrentDialogue;
     private int charCount = 0;
     private float charTimer = 0;
@@ -108,6 +109,7 @@ public class DialogueBox : MonoBehaviour
             charTimer = 0;
             CurrentDialogue.CurrentSentence = 0;
             GameManager.Paused = false;
+
         }
     }
 }

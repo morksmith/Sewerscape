@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public int StepCount = 0;
     public bool StepCompleted = false;
     public bool OverEnemy = false;
-    private Vector3 targetPos;
+    public Vector3 targetPos;
     public EnemyManager EnemyManager;
     private Ray moveVector;
     private Ray enemyVector;
@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         
-        if(tarDist < 0.01f)
+        if(tarDist < 0.01f && !GameManager.Paused)
         {
             if (!StepCompleted)
             {

@@ -11,10 +11,26 @@ public class PlayerControl : MonoBehaviour
     public DialogueBox GameText;
     public bool Dead = false;
     public BattleManager Battle;
+    private Vector3 startPosition;
+    private float deathTimer;
+
+    private void Start()
+    {
+        startPosition = transform.position;
+    }
 
     private void Update()
     {
-        
+        if (Dead)
+        {
+            
+            deathTimer += Time.deltaTime;
+            if(deathTimer >= 5)
+            {
+
+                PlayerDead();
+            }
+        }
     }
     
     public void TakeDamage(float dmg, Enemy e)
@@ -35,7 +51,9 @@ public class PlayerControl : MonoBehaviour
             else
             {
                 Stats.HP = 0;
-                BattleText.SendText(e.EnemyName + " dealt " + dmg + " damage to " + Stats.PlayerName + "\n" + "Player passes out!");
+                var goldLost = Mathf.RoundToInt(Stats.Gold / 2);
+                Stats.Gold -= goldLost;
+                BattleText.SendText(e.EnemyName + " dealt " + dmg + " damage to " + Stats.PlayerName + "\n" +  Stats.PlayerName + " passed out!" + "\n" + Stats.PlayerName + "Dropped " + goldLost + " gold.");
                 Dead = true;
             }
         }
@@ -59,5 +77,17 @@ public class PlayerControl : MonoBehaviour
             }
         }
     }
-    
+    public void PlayerDead()
+    {
+        deathTimer = 0;
+        
+        transform.position = startPosition;
+        Movement.targetPos = startPosition;
+        Dead = false;
+        Stats.HP = Stats.MaxHP;
+        Movement.OverEnemy = false;
+        GameManager.Paused = false;
+
+    }
+
 }

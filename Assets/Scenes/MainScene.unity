@@ -13049,6 +13049,7 @@ MonoBehaviour:
   StepCount: 0
   StepCompleted: 0
   OverEnemy: 0
+  targetPos: {x: 0, y: 0, z: 0}
   EnemyManager: {fileID: 1373028572}
 --- !u!1001 &425333970
 PrefabInstance:
@@ -19175,6 +19176,7 @@ MonoBehaviour:
   TMP: {fileID: 621807888}
   DialogueStarted: 0
   ActionMenu: {fileID: 594023661}
+  PlayerControl: {fileID: 0}
   CurrentDialogue: {fileID: 0}
   NextIcon: {fileID: 1254354738}
   FlashSpeed: 0.2
@@ -49740,6 +49742,7 @@ MonoBehaviour:
   TMP: {fileID: 1612252496}
   DialogueStarted: 0
   ActionMenu: {fileID: 273545348}
+  PlayerControl: {fileID: 0}
   CurrentDialogue: {fileID: 0}
   NextIcon: {fileID: 0}
   FlashSpeed: 0.2
@@ -50602,8 +50605,8 @@ MonoBehaviour:
   Accuracy: 1
   CritChance: 1
   Vitality: 1
-  MaxHP: 10
-  HP: 10
+  MaxHP: 1
+  HP: 1
   MaxMP: 10
   MP: 0
   MaxXP: 10
