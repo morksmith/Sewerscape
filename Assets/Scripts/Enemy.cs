@@ -39,10 +39,11 @@ public class Enemy : MonoBehaviour
         else
         {
             HP = 0;
-            db.SendText(p.Stats.PlayerName + " dealt " + dmg + " damage to " + EnemyName + "!" + "\n" + p.Stats.PlayerName + " killed " + EnemyName + "!" + "\n" + p.Stats.PlayerName +" gained " + XP + "XP!" + "\n" + Gold + " Gold found!");
-            p.PlusXP(XP);
-            var goldAmount = Mathf.CeilToInt(Random.Range(Gold * 0.75f, Gold * 1.25f));
-            p.Stats.Gold += Gold;
+            var goldAmount = Mathf.CeilToInt(Random.Range(Gold * 0.75f, Gold * 1.25f)) * p.Stats.GoldBonus;
+            var xpAmount = XP * p.Stats.XPBonus;
+            db.SendText(p.Stats.PlayerName + " dealt " + dmg + " damage to " + EnemyName + "!" + "\n" + p.Stats.PlayerName + " killed " + EnemyName + "!" + "\n" + p.Stats.PlayerName +" gained " + xpAmount + "XP!" + "\n" + goldAmount + " Gold found!");
+            p.PlusXP(xpAmount);
+            p.Stats.Gold += goldAmount;
             Dead = true;
             Destroy(gameObject);
         }

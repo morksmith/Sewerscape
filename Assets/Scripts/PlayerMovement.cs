@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public bool StepCompleted = false;
     public bool OverEnemy = false;
     public Vector3 targetPos;
+    private Vector3 startPos;
     public EnemyManager EnemyManager;
     private Ray moveVector;
     private Ray enemyVector;
@@ -25,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         targetPos = transform.position;
+        startPos = transform.position;
     }
 
     // Update is called once per frame
@@ -32,7 +34,8 @@ public class PlayerMovement : MonoBehaviour
     {
         var tarDist = Vector3.Distance(targetPos, transform.position);
         transform.position = Vector3.Lerp(transform.position, targetPos, MoveSpeed * Time.deltaTime / tarDist);
-        if(CurrentInteractive != null)
+
+        if (CurrentInteractive != null)
         {
             InteractIcon.SetActive(true);
         }
@@ -60,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                Debug.Log(Joystick.Horizontal + " - " + Joystick.Vertical);
+                //Debug.Log(Joystick.Horizontal + " - " + Joystick.Vertical);
                 if (Input.GetAxis("Horizontal") > 0 || Joystick.Horizontal > 0.5f)
                 {
                     moveVector = new Ray(transform.position + Vector3.right + (Vector3.up * 2), Vector3.down);
@@ -85,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
                     enemyVector = new Ray(transform.position - Vector3.forward + (Vector3.up * -2), Vector3.up);
                     PlayerMesh.eulerAngles = new Vector3(0, 180, 0);
                 }
+                
 
             }
             if (Physics.Raycast(moveVector, out hit))
@@ -147,5 +151,17 @@ public class PlayerMovement : MonoBehaviour
             ScreenEffects.Flash(Color.white);
             StepCount = 0;
         }
+    }
+    public void SendToStart()
+    {
+        transform.position = startPos;
+        targetPos = transform.position;
+        StepCompleted = true;
+        OverEnemy = false;
+        Debug.Log(targetPos);
+        CurrentInteractive = null;
+        StepCount = 0;
+        moveVector = new Ray(transform.position + transform.up * 2, -transform.up);
+
     }
 }

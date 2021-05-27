@@ -7,7 +7,7 @@ using TMPro;
 public class Stats : MonoBehaviour
 {
     public string PlayerName = "Player";
-    public float LevelCurve = 10;
+    public float LevelCurve = 20;
     public float Defence = 1;
     public float Level = 1;
     public float Speed = 1;
@@ -30,7 +30,7 @@ public class Stats : MonoBehaviour
     public float SkillPoints = 0;
     public float Gold = 0;
     public float RunBonus;
-    public float XPBonus;
+    public float XPBonus = 1;
     public float CritBonus;
     public float EncounterBonus;
     public float GoldBonus;
@@ -52,16 +52,16 @@ public class Stats : MonoBehaviour
 
     public void UpdateStats()
     {
-        HitChance = Mathf.Ceil((Accuracy / (Accuracy + (LevelCurve / 20)) * 100));
-        DodgeChance = Mathf.Ceil(Speed / (Speed + (LevelCurve *2)) * 100);
+        HitChance = Mathf.Ceil(Accuracy / (Accuracy + 20) * 35) + 70;
+        DodgeChance = Mathf.Ceil(Speed / (Speed + LevelCurve) * 100);
         RunChance = 50 + RunBonus;
-        MaxHP = Mathf.Ceil(Vitality / (Vitality + LevelCurve) * 100);
-        MaxMP = Mathf.Ceil(Will / (Will + LevelCurve) * 100);
-        MeleeDamage = (Strength / (Strength + LevelCurve) * 11);
-        RangeDamage = (Skill / (Skill + LevelCurve) * 11);
-        MagicDamage = (Will / (Will + LevelCurve) * 11);
-        TurnOrder = Mathf.Ceil(Speed / (Speed + LevelCurve) * 50) + 1;
-        MaxXP = Mathf.Ceil(Level / (Level + LevelCurve * 20) * 2000);
+        MaxHP = Mathf.Ceil(Vitality / (Vitality + LevelCurve * 5) * 2000);
+        MaxMP = Mathf.Ceil(Will / (Will + LevelCurve * 5) * 2000);
+        MeleeDamage = (Strength / (Strength + LevelCurve) * 5) + 1;
+        RangeDamage = (Skill / (Skill + LevelCurve) * 5) + 1;
+        MagicDamage = (Will / (Will + LevelCurve) * 5) + 1;
+        TurnOrder = Mathf.Ceil(Speed / (Speed + LevelCurve) * 30) - 1;
+        MaxXP = Mathf.Ceil(Level / (Level + LevelCurve) * 200 * Level);
         CritChance = 1 + CritBonus;
 
 
@@ -90,6 +90,11 @@ public class Stats : MonoBehaviour
         XP -= MaxXP;
         UpdateStats();
         Debug.Log("Player levelled up!");
+    }
+
+    public void GainXP(float xp)
+    {
+        
     }
 
 }

@@ -6,8 +6,9 @@ public class GameManager : MonoBehaviour
 {
     public static bool Paused = false;
     public PlayerControl Player;
+    public PlayerMovement Movement;
     public Stats PlayerStats;
-    public Dialogue LevelUpMessage;
+    public Dialogue Messages;
     public DialogueBox GameText;
     // Start is called before the first frame update
     void Start()
@@ -22,12 +23,25 @@ public class GameManager : MonoBehaviour
         {
             if(PlayerStats.XP >= PlayerStats.MaxXP)
             {
-                PlayerStats.LevelUp();
                 GameManager.Paused = true;
-                LevelUpMessage.Sentences.Clear();
-                LevelUpMessage.Sentences.Add(PlayerStats.PlayerName + " reached level " + PlayerStats.Level + "!");
-                LevelUpMessage.Sentences.Add("3 skill points gained!");
-                GameText.StartDialogue(LevelUpMessage);
+                PlayerStats.LevelUp();
+                Messages.Sentences.Clear();
+                Messages.Sentences.Add(PlayerStats.PlayerName + " reached level " + PlayerStats.Level + "!");
+                Messages.Sentences.Add("3 skill points gained!");
+                GameText.StartDialogue(Messages);
+            }
+            if (Player.Dead)
+            {
+                GameManager.Paused = true;
+                Debug.Log("Player Dead");
+                Messages.Sentences.Clear();
+                Messages.Sentences.Add(PlayerStats.PlayerName + " wakes up at the bottom of the sewer.");
+                var goldLost = Mathf.RoundToInt(PlayerStats.Gold / 2);
+                Messages.Sentences.Add(PlayerStats.PlayerName + " lost " + goldLost + " gold!");
+                PlayerStats.Gold -= goldLost;
+                GameText.StartDialogue(Messages);
+                Movement.SendToStart();
+                Player.Dead = false;
             }
         }
     }

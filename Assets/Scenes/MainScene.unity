@@ -29772,8 +29772,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 424530824}
+  Movement: {fileID: 424530827}
   PlayerStats: {fileID: 1639613031}
-  LevelUpMessage: {fileID: 971223701}
+  Messages: {fileID: 971223701}
   GameText: {fileID: 621807887}
 --- !u!114 &971223701
 MonoBehaviour:
@@ -41920,7 +41921,7 @@ MonoBehaviour:
   TargetEnemy: {fileID: 0}
   TurnDelay: 2
   BattleText: {fileID: 1612252498}
-  BattleDialogue: {fileID: 0}
+  BattleDialogue: {fileID: 1337565860}
 --- !u!4 &1337565859
 Transform:
   m_ObjectHideFlags: 0
@@ -50591,7 +50592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerName: Dude
-  LevelCurve: 10
+  LevelCurve: 20
   Defence: 1
   Level: 1
   Speed: 1
@@ -50613,11 +50614,11 @@ MonoBehaviour:
   XP: 0
   SkillPoints: 0
   Gold: 0
-  RunBonus: 0
-  XPBonus: 0
-  CritBonus: 0
-  EncounterBonus: 0
-  GoldBonus: 0
+  RunBonus: 1
+  XPBonus: 1
+  CritBonus: 1
+  EncounterBonus: 1
+  GoldBonus: 1
   HPText: {fileID: 604938563}
   MPText: {fileID: 866233608}
   XPText: {fileID: 1728460020}

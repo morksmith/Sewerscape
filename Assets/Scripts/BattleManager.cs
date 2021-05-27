@@ -59,7 +59,7 @@ public class BattleManager : MonoBehaviour
                 {
                     if (!BattleOver)
                     {
-                        turnTimer = TurnDelay / 2;
+                        turnTimer = TurnDelay;
                         BattleOver = true;
                     }
                     else
@@ -67,8 +67,10 @@ public class BattleManager : MonoBehaviour
                         PlayerTurn = true;
                         ActionMenu.SetActive(false);
                         BattleCanvas.Active = false;
-                        GameCanvas.Active = false;
-                        GameManager.Paused = true;
+                        GameCanvas.Active = true;
+                        GameManager.Paused = false;
+                        Debug.Log(GameManager.Paused);
+                    
                     }
                 }
             }
@@ -86,12 +88,12 @@ public class BattleManager : MonoBehaviour
                     if (!BattleOver)
                     {
                         EnemySprite.enabled = false;
-                        turnTimer = TurnDelay/2;
+                        turnTimer = TurnDelay * 2;
                         BattleOver = true;
                     }
                     else
                     {
-                        PlayerTurn = false;
+                        PlayerTurn = true;
                         ActionMenu.SetActive(false);
                         BattleCanvas.Active = false;
                         GameCanvas.Active = true;
