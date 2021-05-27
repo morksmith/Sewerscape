@@ -55,11 +55,11 @@ public class Stats : MonoBehaviour
         HitChance = Mathf.Ceil(Accuracy / (Accuracy + 20) * 35) + 70;
         DodgeChance = Mathf.Ceil(Speed / (Speed + LevelCurve) * 100);
         RunChance = 50 + RunBonus;
-        MaxHP = Mathf.Ceil(Vitality / (Vitality + LevelCurve * 5) * 2000);
-        MaxMP = Mathf.Ceil(Will / (Will + LevelCurve * 5) * 2000);
-        MeleeDamage = (Strength / (Strength + LevelCurve) * 5) + 1;
-        RangeDamage = (Skill / (Skill + LevelCurve) * 5) + 1;
-        MagicDamage = (Will / (Will + LevelCurve) * 5) + 1;
+        MaxHP = Mathf.Ceil(Vitality / (Vitality + LevelCurve * 5) * 2000) - 10;
+        MaxMP = Mathf.Ceil(Will / (Will + LevelCurve * 5) * 2000) - 10;
+        MeleeDamage = (Strength / (Strength + LevelCurve) * 5) + 0.8f;
+        RangeDamage = (Skill / (Skill + LevelCurve) * 5) + 0.8f;
+        MagicDamage = (Will / (Will + LevelCurve) * 5) + 0.8f;
         TurnOrder = Mathf.Ceil(Speed / (Speed + LevelCurve) * 30) - 1;
         MaxXP = Mathf.Ceil(Level / (Level + LevelCurve) * 200 * Level);
         CritChance = 1 + CritBonus;

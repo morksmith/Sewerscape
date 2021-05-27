@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
                 var goldLost = Mathf.RoundToInt(PlayerStats.Gold / 2);
                 Messages.Sentences.Add(PlayerStats.PlayerName + " lost " + goldLost + " gold!");
                 PlayerStats.Gold -= goldLost;
+                PlayerStats.HP = PlayerStats.MaxHP;
+                PlayerStats.MP = PlayerStats.MaxMP;
                 GameText.StartDialogue(Messages);
                 Movement.SendToStart();
                 Player.Dead = false;

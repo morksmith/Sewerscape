@@ -88,7 +88,7 @@ public class BattleManager : MonoBehaviour
                     if (!BattleOver)
                     {
                         EnemySprite.enabled = false;
-                        turnTimer = TurnDelay * 2;
+                        turnTimer = -2;
                         BattleOver = true;
                     }
                     else
