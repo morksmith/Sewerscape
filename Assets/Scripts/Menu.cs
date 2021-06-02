@@ -7,6 +7,7 @@ public class Menu : MonoBehaviour
 {
     public bool Active = false;
     public bool PauseMenu = true;
+    public bool BattleMenu = false;
     public Vector3 InactivePosition;
     public Vector3 ActivePosition;
     public float MoveSpeed = 5;
@@ -33,6 +34,15 @@ public class Menu : MonoBehaviour
 
     public void Activate()
     {
+        var menus = FindObjectsOfType<Menu>();
+        foreach(Menu m in menus)
+        {
+            if (!m.BattleMenu)
+            {
+                m.DeActivate();
+            }
+
+        }
         if (PauseMenu)
         {
             GameManager.Paused = true;
@@ -46,14 +56,31 @@ public class Menu : MonoBehaviour
 
     public void DeActivate()
     {
-        if (PauseMenu)
+        if (!GameManager.InBattle)
         {
-            GameManager.Paused = false;
+            if (PauseMenu)
+            {
+                GameManager.Paused = false;
+            }
+            else
+            {
+                GameManager.Paused = true;
+            }
+        }
+        Active = false;
+
+
+    }
+
+    public void Toggle()
+    {
+        if (Active)
+        {
+            DeActivate();
         }
         else
         {
-            GameManager.Paused = true;
+            Activate();
         }
-        Active = false;
     }
 }

@@ -98,6 +98,7 @@ public class BattleManager : MonoBehaviour
                         BattleCanvas.Active = false;
                         GameCanvas.Active = true;
                         GameManager.Paused = false;
+                        GameManager.InBattle = false;
                     }
                     
                 }
@@ -110,6 +111,7 @@ public class BattleManager : MonoBehaviour
 
     public void StartBattle(Enemy e)
     {
+        GameManager.InBattle = true;
         if (e.Speed > PlayerStats.TurnOrder)
         {
             PlayerTurn = false;

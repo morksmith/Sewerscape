@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static bool Paused = false;
+    public static bool InBattle = false;
     public PlayerControl Player;
     public PlayerMovement Movement;
     public Stats PlayerStats;
