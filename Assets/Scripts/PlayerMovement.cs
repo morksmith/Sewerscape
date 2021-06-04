@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private Ray enemyVector;
     private RaycastHit hit;
     public Animator SpriteAnimator;
+    private float idleTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -48,9 +49,16 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
-
+        if (StepCompleted)
+        {
+            idleTimer += Time.deltaTime;
+            if (idleTimer >= 0.1f)
+            {
+                SpriteAnimator.SetBool("Walking", false);
+            }
+        }
         
-        if(tarDist < 0.01f && !GameManager.Paused)
+        if (tarDist < 0.01f && !GameManager.Paused)
         {
             if (!StepCompleted)
             {
@@ -61,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
                     targetPos = transform.position;
                 }
                 StepCompleted = true;
-                SpriteAnimator.SetBool("Walking", false);
+                              
 
             }
             else
@@ -72,27 +80,33 @@ public class PlayerMovement : MonoBehaviour
                     moveVector = new Ray(transform.position + Vector3.right + (Vector3.up * 2), Vector3.down);
                     enemyVector = new Ray(transform.position + Vector3.right + (Vector3.up * -2), Vector3.up);
                     PlayerMesh.eulerAngles = new Vector3(0, 90, 0);
+                    SpriteAnimator.SetInteger("Direction", 1);
+
                 }
                 if (Input.GetAxis("Horizontal") < 0 || Joystick.Horizontal < -0.5f)
                 {
                     moveVector = new Ray(transform.position - Vector3.right + (Vector3.up * 2), Vector3.down);
                     enemyVector = new Ray(transform.position - Vector3.right + (Vector3.up * -2), Vector3.up);
                     PlayerMesh.eulerAngles = new Vector3(0, -90, 0);
+                    SpriteAnimator.SetInteger("Direction", 3);
+
                 }
                 if (Input.GetAxis("Vertical") > 0 || Joystick.Vertical > 0.5f)
                 {
                     moveVector = new Ray(transform.position + Vector3.forward + (Vector3.up * 2), Vector3.down);
                     enemyVector = new Ray(transform.position + Vector3.forward + (Vector3.up * -2), Vector3.up);
                     PlayerMesh.eulerAngles = new Vector3(0, 0, 0);
-                    SpriteAnimator.SetInteger("Direction", 2);
+                    SpriteAnimator.SetInteger("Direction", 0);
                 }
                 if (Input.GetAxis("Vertical") < 0 || Joystick.Vertical < -0.5f)
                 {
                     moveVector = new Ray(transform.position - Vector3.forward + (Vector3.up * 2), Vector3.down);
                     enemyVector = new Ray(transform.position - Vector3.forward + (Vector3.up * -2), Vector3.up);
                     PlayerMesh.eulerAngles = new Vector3(0, 180, 0);
+                    SpriteAnimator.SetInteger("Direction", 2);
+
                 }
-                
+
 
             }
             if (Physics.Raycast(moveVector, out hit))
@@ -128,6 +142,7 @@ public class PlayerMovement : MonoBehaviour
         {
             StepCompleted = false;
             SpriteAnimator.SetBool("Walking", true);
+            idleTimer = 0;
 
         }
         Ray ray = new Ray(PlayerMesh.transform.position + PlayerMesh.transform.forward + (Vector3.up * 2), Vector3.down);
