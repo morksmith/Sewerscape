@@ -17510,12 +17510,13 @@ MonoBehaviour:
   InteractIcon: {fileID: 1190099135}
   PlayerMesh: {fileID: 1109473730}
   Joystick: {fileID: 513111651}
-  MoveSpeed: 3
+  MoveSpeed: 2
   StepCount: 0
   StepCompleted: 0
   OverEnemy: 0
   targetPos: {x: 0, y: 0, z: 0}
   EnemyManager: {fileID: 1373028572}
+  SpriteAnimator: {fileID: 565781776}
 --- !u!1001 &427079098
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22525,8 +22526,9 @@ GameObject:
   m_Component:
   - component: {fileID: 565781774}
   - component: {fileID: 565781775}
+  - component: {fileID: 565781776}
   m_Layer: 0
-  m_Name: Player Sheet_0
+  m_Name: Player Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22539,13 +22541,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 565781773}
-  m_LocalRotation: {x: -0.000002078712, y: 0.70710796, z: 0.7071057, w: 0.0000021234155}
-  m_LocalPosition: {x: 0, y: 1, z: 0.28}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 2, z: 0.5}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children: []
   m_Father: {fileID: 424530825}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &565781775
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -22597,6 +22599,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &565781776
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565781773}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 139157cf2277379449bb0048097e4904, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &568055522
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45914,7 +45935,6 @@ GameObject:
   - component: {fileID: 1109473730}
   - component: {fileID: 1109473732}
   - component: {fileID: 1109473731}
-  - component: {fileID: 1109473733}
   m_Layer: 0
   m_Name: Player Mesh
   m_TagString: Untagged
@@ -45985,25 +46005,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1109473729}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!95 &1109473733
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1109473729}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: dde4b151fec2a2a45be489e388abdb0d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1113440558
 PrefabInstance:
   m_ObjectHideFlags: 0
