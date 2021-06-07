@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public int StepCount = 0;
     public bool StepCompleted = false;
     public bool OverEnemy = false;
+    public bool Walking = false;
     public Vector3 targetPos;
     private Vector3 startPos;
     public EnemyManager EnemyManager;
@@ -23,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     private RaycastHit hit;
     public Animator SpriteAnimator;
     private float idleTimer;
+    private int direction;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +38,50 @@ public class PlayerMovement : MonoBehaviour
     {
         var tarDist = Vector3.Distance(targetPos, transform.position);
         transform.position = Vector3.Lerp(transform.position, targetPos, MoveSpeed * Time.deltaTime / tarDist);
+        if(direction == 0)
+        {
+            if(Walking)
+            {
+                SpriteAnimator.Play("Walk Up");
+            }
+            else
+            {
+                SpriteAnimator.Play("Idle Up");
+            }
+        }
+        else if(direction == 1)
+        {
+            if (Walking)
+            {
+                SpriteAnimator.Play("Walk Right");
+            }
+            else
+            {
+                SpriteAnimator.Play("Idle Right");
+            }
+        }
+        else if (direction == 2)
+        {
+            if (Walking)
+            {
+                SpriteAnimator.Play("Walk Down");
+            }
+            else
+            {
+                SpriteAnimator.Play("Idle Down");
+            }
+        }
+        else if (direction == 3)
+        {
+            if (Walking)
+            {
+                SpriteAnimator.Play("Walk Left");
+            }
+            else
+            {
+                SpriteAnimator.Play("Idle Left");
+            }
+        }
 
         if (CurrentInteractive != null)
         {
@@ -52,9 +98,9 @@ public class PlayerMovement : MonoBehaviour
         if (StepCompleted)
         {
             idleTimer += Time.deltaTime;
-            if (idleTimer >= 0.1f)
+            if(idleTimer > 0.1f)
             {
-                SpriteAnimator.SetBool("Walking", false);
+                Walking = false;
             }
         }
         
@@ -62,6 +108,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!StepCompleted)
             {
+
                 StepCount++;
                 if (OverEnemy)
                 {
@@ -80,7 +127,9 @@ public class PlayerMovement : MonoBehaviour
                     moveVector = new Ray(transform.position + Vector3.right + (Vector3.up * 2), Vector3.down);
                     enemyVector = new Ray(transform.position + Vector3.right + (Vector3.up * -2), Vector3.up);
                     PlayerMesh.eulerAngles = new Vector3(0, 90, 0);
-                    SpriteAnimator.SetInteger("Direction", 1);
+                    direction = 1;
+                    Walking = true;
+                    idleTimer = 0;
 
                 }
                 if (Input.GetAxis("Horizontal") < 0 || Joystick.Horizontal < -0.5f)
@@ -88,7 +137,9 @@ public class PlayerMovement : MonoBehaviour
                     moveVector = new Ray(transform.position - Vector3.right + (Vector3.up * 2), Vector3.down);
                     enemyVector = new Ray(transform.position - Vector3.right + (Vector3.up * -2), Vector3.up);
                     PlayerMesh.eulerAngles = new Vector3(0, -90, 0);
-                    SpriteAnimator.SetInteger("Direction", 3);
+                    direction = 3;
+                    Walking = true;
+                    idleTimer = 0;
 
                 }
                 if (Input.GetAxis("Vertical") > 0 || Joystick.Vertical > 0.5f)
@@ -96,14 +147,18 @@ public class PlayerMovement : MonoBehaviour
                     moveVector = new Ray(transform.position + Vector3.forward + (Vector3.up * 2), Vector3.down);
                     enemyVector = new Ray(transform.position + Vector3.forward + (Vector3.up * -2), Vector3.up);
                     PlayerMesh.eulerAngles = new Vector3(0, 0, 0);
-                    SpriteAnimator.SetInteger("Direction", 0);
+                    direction = 0;
+                    Walking = true;
+                    idleTimer = 0;
                 }
                 if (Input.GetAxis("Vertical") < 0 || Joystick.Vertical < -0.5f)
                 {
                     moveVector = new Ray(transform.position - Vector3.forward + (Vector3.up * 2), Vector3.down);
                     enemyVector = new Ray(transform.position - Vector3.forward + (Vector3.up * -2), Vector3.up);
                     PlayerMesh.eulerAngles = new Vector3(0, 180, 0);
-                    SpriteAnimator.SetInteger("Direction", 2);
+                    direction = 2;
+                    Walking = true;
+                    idleTimer = 0;
 
                 }
 

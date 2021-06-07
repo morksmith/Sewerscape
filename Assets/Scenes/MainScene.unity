@@ -17510,10 +17510,11 @@ MonoBehaviour:
   InteractIcon: {fileID: 1190099135}
   PlayerMesh: {fileID: 1109473730}
   Joystick: {fileID: 513111651}
-  MoveSpeed: 2
+  MoveSpeed: 2.5
   StepCount: 0
   StepCompleted: 0
   OverEnemy: 0
+  Walking: 0
   targetPos: {x: 0, y: 0, z: 0}
   EnemyManager: {fileID: 1373028572}
   SpriteAnimator: {fileID: 565781776}
