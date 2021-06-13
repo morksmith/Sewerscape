@@ -36,6 +36,7 @@ public class BattleManager : MonoBehaviour
         {
             return;
         }
+        
         turnTimer += Time.deltaTime;
         if (TargetEnemy.Dead)
         {
@@ -88,17 +89,19 @@ public class BattleManager : MonoBehaviour
                     if (!BattleOver)
                     {
                         EnemySprite.enabled = false;
-                        turnTimer = -2;
+                        turnTimer = -1;
                         BattleOver = true;
                     }
                     else
                     {
-                        PlayerTurn = true;
+                        PlayerTurn = false;
                         ActionMenu.SetActive(false);
                         BattleCanvas.Active = false;
                         GameCanvas.Active = true;
                         GameManager.Paused = false;
                         GameManager.InBattle = false;
+                        BattleOver = false;
+                        BattleStarted = false;
                     }
                     
                 }
@@ -197,22 +200,48 @@ public class BattleManager : MonoBehaviour
             dmg *= 2.5f;
             dmg = Mathf.CeilToInt(dmg);
             BattleText.SendText("Critical Hit!" + "\n" + PlayerStats.PlayerName + " dealt " + dmg + " damage to " + e.EnemyName + "!");
+            if(e.HP > dmg)
+            {
+                turnTimer = 0;
+            }
+            else
+            {
+                turnTimer = -1;
+            }
             e.TakeDamage(dmg, BattleText, Player);
             EnemyEffects.Flash(Color.red);
-            turnTimer = 0;
+            //turnTimer = 0;
         }
         else
         {
             dmg = Mathf.CeilToInt(dmg);
+            if (e.HP > dmg)
+            {
+                turnTimer = 0;
+            }
+            else
+            {
+                turnTimer = -1;
+            }
             BattleText.SendText(PlayerStats.PlayerName + " dealt " + dmg + " damage to " + e.EnemyName + "!");
             e.TakeDamage(dmg, BattleText, Player);
             EnemyEffects.Flash(Color.red);
-            turnTimer = 0;
+            //turnTimer = 0;
         }
+
+        
 
 
 
 
     }
-    
+    public void PlayerUseItem()
+    {
+        PlayerTurn = false;
+        ActionMenu.SetActive(false);
+        turnTimer = 0;
+        Debug.Log("Player used Item");
+    }
+
+
 }

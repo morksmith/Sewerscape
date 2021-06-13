@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+    public enum ItemType
+    {
+        Candy,
+        Protein,
+        Mana,
+        Bomb,
+        Meat,
+        Spray,
+        Fan
+    }
+    public ItemType Type;
     public string ItemName = "Item Name";
     public string ItemDescription = "This is the item description";
     
