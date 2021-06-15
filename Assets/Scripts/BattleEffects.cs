@@ -55,10 +55,19 @@ public class BattleEffects : MonoBehaviour
             var moveDist = Vector2.Distance(img.rectTransform.anchoredPosition, targetPos);
             if (!Returning)
             {
+                if (!Dodging)
+                {
+                    if (moveDist < 20f)
+                    {
+                        img.rectTransform.localScale = new Vector3(-1, 1, 1);
+                    }
+                }
+                
                 img.rectTransform.anchoredPosition = Vector2.Lerp(img.rectTransform.anchoredPosition, targetPos, Time.deltaTime * MoveSpeed);
                 if (moveDist < 1)
                 {
                     Returning = true;
+                    img.rectTransform.localScale = new Vector3(1, 1, 1);
                 }
             }
             else
@@ -96,6 +105,7 @@ public class BattleEffects : MonoBehaviour
     }
     public void Attack()
     {
+        Dodging = false;
         Attacking = true;
         step = 0;
         targetPos = img.rectTransform.anchoredPosition - new Vector2(0, MoveAmount);
@@ -104,6 +114,7 @@ public class BattleEffects : MonoBehaviour
     }
     public void Dodge()
     {
+        Attacking = false;
         Dodging = true;
         step = 0;
         targetPos = img.rectTransform.anchoredPosition - new Vector2(MoveAmount, 0);
