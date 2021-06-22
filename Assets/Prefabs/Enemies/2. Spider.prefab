@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyName: Spider
-  BattleSprite: {fileID: 21300000, guid: 0b2ec4a6c4f20f34897448a19925d702, type: 3}
+  BattleSprite: {fileID: 21300000, guid: 3dcf38af1ac1a3641ade402fd3c7ebda, type: 3}
   Speed: 2
   MinDamage: 1
   MaxDamage: 4
