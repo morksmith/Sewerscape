@@ -26,7 +26,7 @@ public class ItemManager : MonoBehaviour
             ItemNameText.text = " ";
             ItemDescriptionText.text = " ";
             UseButton.interactable = false;
-            ItemImage.sprite = null;
+            ItemImage.enabled = false;
         }
     }
 
@@ -36,6 +36,7 @@ public class ItemManager : MonoBehaviour
         ItemNameText.text = i.ItemName;
         ItemDescriptionText.text = i.ItemDescription;
         UseButton.interactable = true;
+        ItemImage.enabled = true;
         ItemImage.sprite = i.UiSprite;
     }
 
@@ -54,7 +55,7 @@ public class ItemManager : MonoBehaviour
         UseButton.interactable = false;
         ItemNameText.text = " ";
         ItemDescriptionText.text = " ";
-        ItemImage.sprite = null;
+        ItemImage.enabled = false;
         if (!GameManager.InBattle)
         {
             GameCanvas.Activate();
