@@ -102,6 +102,7 @@ public class BattleManager : MonoBehaviour
                         GameManager.InBattle = false;
                         BattleOver = false;
                         BattleStarted = false;
+                        Player.Stats.StrengthBonus = 1;
                     }
                     
                 }
@@ -174,31 +175,45 @@ public class BattleManager : MonoBehaviour
             {
                 dmg = Random.Range(1, 3);
                 dmg = Mathf.CeilToInt(dmg) * Player.Stats.MeleeDamage;
-                e.TakeDamage(dmg, BattleText, Player);
+                Debug.Log("Base Damage = " + dmg);
             }
             else
             {
                 dmg = Random.Range(EquippedWeapon.Damage + 2, (EquippedWeapon.Damage - 2));
                 dmg = Mathf.Clamp(dmg, 1, 999);
+                Debug.Log("Weapon Damage = " + dmg);
+
                 if (EquippedWeapon.Type == Weapon.WeaponType.Magic)
                 {
                     dmg *= Stats.MagicDamage;
+                    Debug.Log("Weapon Multiply Damage = " + dmg);
+
                 }
                 else if (EquippedWeapon.Type == Weapon.WeaponType.Melee)
                 {
                     dmg *= Stats.MeleeDamage;
+                    Debug.Log("Weapon Multiply Damage = " + dmg);
+
                 }
                 else if (EquippedWeapon.Type == Weapon.WeaponType.Ranged)
                 {
                     dmg *= Stats.RangeDamage;
+                    Debug.Log("Weapon Multiply Damage = " + dmg);
+
                 }
             }
         }
+        dmg *= PlayerStats.StrengthBonus;
+        Debug.Log(PlayerStats.StrengthBonus);
+        Debug.Log("Strength Bonus Damage = " + dmg);
+
         float critChance = Random.Range(0, 20);
         if (critChance < 1 + Stats.CritBonus)
         {
             dmg *= 2.5f;
             dmg = Mathf.CeilToInt(dmg);
+            Debug.Log("Crit Damage = " + dmg);
+
             BattleText.SendText("Critical Hit!" + "\n" + PlayerStats.PlayerName + " dealt " + dmg + " damage to " + e.EnemyName + "!");
             if(e.HP > dmg)
             {
@@ -215,6 +230,8 @@ public class BattleManager : MonoBehaviour
         else
         {
             dmg = Mathf.CeilToInt(dmg);
+            Debug.Log("Rounded Up Damage = " + dmg);
+
             if (e.HP > dmg)
             {
                 turnTimer = 0;

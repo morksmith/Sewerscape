@@ -17,6 +17,7 @@ public class Item : MonoBehaviour
     public ItemType Type;
     public string ItemName = "Item Name";
     public string ItemDescription = "This is the item description";
+    public Sprite UiSprite;
     
     // Start is called before the first frame update
     void Start()

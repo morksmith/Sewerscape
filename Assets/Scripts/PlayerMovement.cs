@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     private Ray enemyVector;
     private RaycastHit hit;
     public Animator SpriteAnimator;
+    public float StrengthBonus = 0;
     private float idleTimer;
     private int direction;
 
@@ -226,6 +227,7 @@ public class PlayerMovement : MonoBehaviour
             EnemyManager.SpawnEnemy();
             ScreenEffects.Flash(Color.white);
             StepCount = 0;
+            StrengthBonus = 0;
         }
     }
     public void SendToStart()

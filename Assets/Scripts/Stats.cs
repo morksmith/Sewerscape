@@ -29,6 +29,7 @@ public class Stats : MonoBehaviour
     public float XP = 0;
     public float SkillPoints = 0;
     public float Gold = 0;
+    public float StrengthBonus = 1;
     public float RunBonus;
     public float XPBonus = 1;
     public float CritBonus;
