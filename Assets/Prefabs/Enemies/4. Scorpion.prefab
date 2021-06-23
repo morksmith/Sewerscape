@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4585111012391411135}
   - component: {fileID: 4585111012391411134}
   m_Layer: 0
-  m_Name: 2. Spider
+  m_Name: 4. Scorpion
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 973873712d95e954bbe236d22d814639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyName: Spider
-  BattleSprite: {fileID: 21300000, guid: 3dcf38af1ac1a3641ade402fd3c7ebda, type: 3}
+  EnemyName: Scorpion
+  BattleSprite: {fileID: 21300000, guid: 9393ddfe2e7226a4083e3e529d342249, type: 3}
   Speed: 2
-  MinDamage: 1
-  MaxDamage: 4
-  MaxHP: 6
-  HP: 6
-  XP: 5
-  Gold: 3
+  MinDamage: 3
+  MaxDamage: 5
+  MaxHP: 10
+  HP: 10
+  XP: 8
+  Gold: 4
   Dead: 0

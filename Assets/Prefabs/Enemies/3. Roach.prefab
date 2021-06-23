@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4585111012391411135}
   - component: {fileID: 4585111012391411134}
   m_Layer: 0
-  m_Name: 2. Spider
+  m_Name: 3. Roach
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 973873712d95e954bbe236d22d814639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyName: Spider
-  BattleSprite: {fileID: 21300000, guid: 3dcf38af1ac1a3641ade402fd3c7ebda, type: 3}
-  Speed: 2
+  EnemyName: Roach
+  BattleSprite: {fileID: 21300000, guid: 43c303bf9b130e44ebcebc3f371e7cd3, type: 3}
+  Speed: 1
   MinDamage: 1
-  MaxDamage: 4
-  MaxHP: 6
-  HP: 6
-  XP: 5
-  Gold: 3
+  MaxDamage: 2
+  MaxHP: 4
+  HP: 4
+  XP: 3
+  Gold: 2
   Dead: 0
