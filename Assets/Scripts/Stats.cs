@@ -62,7 +62,7 @@ public class Stats : MonoBehaviour
         RangeDamage = (Skill / (Skill + LevelCurve) * 5) + 0.8f;
         MagicDamage = (Will / (Will + LevelCurve) * 5) + 0.8f;
         TurnOrder = Mathf.Ceil(Speed / (Speed + LevelCurve) * 30) - 1;
-        MaxXP = Mathf.Ceil(Level / (Level + LevelCurve) * 200 * Level);
+        MaxXP = Mathf.Ceil((Level / (Level + LevelCurve * 2) * 100 * Level)) + 7;
         CritChance = 1 + CritBonus;
 
 

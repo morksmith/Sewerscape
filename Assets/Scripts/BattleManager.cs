@@ -224,7 +224,8 @@ public class BattleManager : MonoBehaviour
                 turnTimer = -1;
             }
             e.TakeDamage(dmg, BattleText, Player);
-            EnemyEffects.Flash(Color.red);
+            EnemyEffects.Dead();
+            
             //turnTimer = 0;
         }
         else

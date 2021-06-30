@@ -24,7 +24,7 @@ public class ItemManager : MonoBehaviour
         if(SelectedItem == null)
         {
             ItemNameText.text = " ";
-            ItemDescriptionText.text = " ";
+            ItemDescriptionText.text = "No item selected";
             UseButton.interactable = false;
             ItemImage.enabled = false;
         }
@@ -54,7 +54,7 @@ public class ItemManager : MonoBehaviour
         SelectedItem = null;
         UseButton.interactable = false;
         ItemNameText.text = " ";
-        ItemDescriptionText.text = " ";
+        ItemDescriptionText.text = "No item selected";
         ItemImage.enabled = false;
         if (!GameManager.InBattle)
         {

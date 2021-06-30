@@ -28,7 +28,7 @@ public class BattleEffects : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if (Input.GetKeyDown(KeyCode.F))
         {

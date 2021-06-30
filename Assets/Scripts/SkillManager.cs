@@ -31,7 +31,7 @@ public class SkillManager : MonoBehaviour
     }
     public void UpdateStats()
     {
-        StatsText.text = Stats.PlayerName + "\n Level : " + Stats.Level + "\n HP : " + Stats.HP + "/" + Stats.MaxHP + "\n MP : " + Stats.MP + "/" + Stats.MaxMP + "\n Melee Strength : " + Stats.MeleeDamage.ToString("F1") + "\n Ranged Strength : " + Stats.RangeDamage.ToString("F1") + "\n Magic Strength : " + Stats.MagicDamage.ToString("F1") + "\n Hit Chance : " + Stats.HitChance + "% \n Dodge Chance : " + Stats.DodgeChance + "%";
+        StatsText.text = Stats.PlayerName + "\n Level : " + Stats.Level + "\n HP : " + Stats.HP + "/" + Stats.MaxHP + "\n MP : " + Stats.MP + "/" + Stats.MaxMP + "\n Melee DMG : " + Stats.MeleeDamage.ToString("F1") + "\n Ranged DMG : " + Stats.RangeDamage.ToString("F1") + "\n Magic DMG : " + Stats.MagicDamage.ToString("F1") + "\n Hit Chance : " + Stats.HitChance + "% \n Dodge Chance : " + Stats.DodgeChance + "%";
         SkillsText.text = "XP : " + Stats.XP + "/" + Stats.MaxXP + "\n Skill Points : " + Stats.SkillPoints + "\n Vitality : " + Stats.Vitality + "\n Strength : " + Stats.Strength + "\n Skill : " + Stats.Skill + "\n Will : " + Stats.Will + "\n Accuracy : " + Stats.Accuracy + "\n Speed : " + Stats.Speed;
         Stats.UpdateStats();
     }
