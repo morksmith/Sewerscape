@@ -5,6 +5,10 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public string WeaponName;
+    public string WeaponDescription;
+    public bool Equipped;
+    public Sprite UiSprite;
+
     public enum WeaponType
     {
         Melee,
@@ -12,7 +16,15 @@ public class Weapon : MonoBehaviour
         Magic
     }
     public WeaponType Type;
-    public float Level;
-    public float Damage;
+    public float MinDamage;
+    public float MaxDamage;
+    public float Price;
+    public float ManaCost;
+    public void SelectWeapon()
+    {
+        var iM = GameObject.FindObjectOfType<ItemManager>();
+        iM.SelectWeapon(this);
+    }
+
 
 }

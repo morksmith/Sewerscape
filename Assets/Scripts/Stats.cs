@@ -8,12 +8,13 @@ public class Stats : MonoBehaviour
 {
     public string PlayerName = "Player";
     public float LevelCurve = 20;
-    public float Defence = 1;
+    public float Defence = 0;
     public float Level = 1;
     public float Speed = 1;
     public float TurnOrder;
     public float Strength = 1;
     public float MeleeDamage;
+    public float MaxDamage = 3;
     public float Will = 1;
     public float MagicDamage;
     public float Skill = 1;

@@ -10,9 +10,15 @@ public class ItemMenuManager : MonoBehaviour
     public GameObject ItemMenu;
     public GameObject ArmourMenu;
     public GameObject WeaponMenu;
+    public GameObject EquippedArmourIcon;
+    public GameObject EquippedWeaponIcon;
     public Button ItemsButton;
     public Button ArmourButton;
     public Button WeaponButton;
+    public Button UseItemButton;
+    public Button EquipArmourButton;
+    public Button EquipWeaponButton;
+    public ItemManager ItemManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,24 +58,69 @@ public class ItemMenuManager : MonoBehaviour
         ItemsButton.image.color = SelectColour;
         ArmourButton.image.color = DisabledColour;
         WeaponButton.image.color = DisabledColour;
-        
+        ItemMenu.gameObject.SetActive(true);
+        ArmourMenu.gameObject.SetActive(false);
+        WeaponMenu.gameObject.SetActive(false);
+        ItemManager.SelectedItem = null;
+        ItemManager.SelectedArmour = null;
+        ItemManager.SelectedWeapon = null;
+        UseItemButton.gameObject.SetActive(true);
+        EquipArmourButton.gameObject.SetActive(false);
+        EquipWeaponButton.gameObject.SetActive(false);
+        ItemManager.UpdateUI();
+        EquippedArmourIcon.gameObject.SetActive(false);
+        EquippedWeaponIcon.gameObject.SetActive(false);
+
+
+
     }
     public void ArmourSelected()
     {
         ItemsButton.image.color = DisabledColour;
         ArmourButton.image.color = SelectColour;
         WeaponButton.image.color = DisabledColour;
-        ItemMenu.SetActive(false);
-        ArmourMenu.SetActive(true);
-        WeaponMenu.SetActive(false);
+        ItemMenu.gameObject.SetActive(false);
+        ArmourMenu.gameObject.SetActive(true);
+        WeaponMenu.gameObject.SetActive(false);
+        ItemManager.SelectedItem = null;
+        ItemManager.SelectedArmour = null;
+        ItemManager.SelectedWeapon = null;
+        UseItemButton.gameObject.SetActive(false);
+        EquipArmourButton.gameObject.SetActive(true);
+        EquipWeaponButton.gameObject.SetActive(false);
+        ItemManager.UpdateUI();
+        EquippedWeaponIcon.gameObject.SetActive(false);
+
+        if (ItemManager.EquippedArmour != null)
+        {
+            EquippedArmourIcon.gameObject.SetActive(true);
+            EquippedArmourIcon.transform.position = ItemManager.EquippedArmour.transform.position;
+        }
+        
+
     }
     public void WeaponsSelected()
     {
         ItemsButton.image.color = DisabledColour;
         ArmourButton.image.color = DisabledColour;
         WeaponButton.image.color = SelectColour;
-        ItemMenu.SetActive(false);
-        ArmourMenu.SetActive(false);
-        WeaponMenu.SetActive(true);
+        ItemMenu.gameObject.SetActive(false);
+        ArmourMenu.gameObject.SetActive(false);
+        WeaponMenu.gameObject.SetActive(true);
+        ItemManager.SelectedItem = null;
+        ItemManager.SelectedArmour = null;
+        ItemManager.SelectedWeapon = null;
+        UseItemButton.gameObject.SetActive(false);
+        EquipArmourButton.gameObject.SetActive(false);
+        EquipWeaponButton.gameObject.SetActive(true);
+        ItemManager.UpdateUI();
+        EquippedArmourIcon.gameObject.SetActive(false);
+        if (ItemManager.EquippedWeapon != null)
+        {
+            EquippedWeaponIcon.gameObject.SetActive(true);
+            EquippedWeaponIcon.transform.position = ItemManager.EquippedWeapon.transform.position;
+        }
+
+
     }
 }

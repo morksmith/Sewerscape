@@ -25,8 +25,9 @@ public class Enemy : MonoBehaviour
     public void AttackPlayer(PlayerControl p)
     {
         var dmg = Random.Range(MinDamage, MaxDamage);
-        dmg *= p.Stats.Defence;
+        dmg -= p.Stats.Defence;
         dmg = Mathf.RoundToInt(Mathf.Clamp(dmg, 1, 999));
+        
         p.TakeDamage(dmg, this);
     }
     public void TakeDamage(float dmg, DialogueBox db, PlayerControl p)

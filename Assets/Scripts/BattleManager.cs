@@ -179,7 +179,7 @@ public class BattleManager : MonoBehaviour
             }
             else
             {
-                dmg = Random.Range(EquippedWeapon.Damage + 2, (EquippedWeapon.Damage - 2));
+                dmg = Random.Range(EquippedWeapon.MinDamage, (EquippedWeapon.MaxDamage));
                 dmg = Mathf.Clamp(dmg, 1, 999);
                 Debug.Log("Weapon Damage = " + dmg);
 
@@ -224,7 +224,6 @@ public class BattleManager : MonoBehaviour
                 turnTimer = -1;
             }
             e.TakeDamage(dmg, BattleText, Player);
-            EnemyEffects.Dead();
             
             //turnTimer = 0;
         }
