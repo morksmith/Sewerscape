@@ -39,6 +39,7 @@ public class PlayerControl : MonoBehaviour
                 Stats.HP = 0;
                 BattleText.SendText(e.EnemyName + " dealt " + dmg + " damage to " + Stats.PlayerName + "\n" + Stats.PlayerName + " passed out!");
                 Dead = true;
+                GameManager.InBattle = false;
                 //GameManager.Paused = false;
             }
         }

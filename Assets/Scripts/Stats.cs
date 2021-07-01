@@ -40,6 +40,7 @@ public class Stats : MonoBehaviour
     public TextMeshProUGUI MPText;
     public TextMeshProUGUI XPText;
     public TextMeshProUGUI GoldText;
+    public GameObject SkillPointIcon;
 
     public float HitChance;
     public float RunChance;
@@ -92,6 +93,7 @@ public class Stats : MonoBehaviour
         XP -= MaxXP;
         UpdateStats();
         Debug.Log("Player levelled up!");
+        SkillPointIcon.SetActive(true);
     }
 
     public void GainXP(float xp)

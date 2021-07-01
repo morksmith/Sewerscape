@@ -204,6 +204,7 @@ public class ItemManager : MonoBehaviour
             EquippedWeaponIcon.rectTransform.position = EquippedWeapon.transform.position;
             SelectWeapon(SelectedWeapon);
             Player.EquippedWeapon = SelectedWeapon;
+            Debug.Log("Player Equipped " + SelectedWeapon.WeaponName);
 
         }
 
