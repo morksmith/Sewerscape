@@ -8,12 +8,20 @@ public class ItemManager : MonoBehaviour
 {
     public Item SelectedItem;
     public TextMeshProUGUI ItemNameText;
+    public TextMeshProUGUI ArmourNameText;
+    public TextMeshProUGUI WeaponNameText;
     public TextMeshProUGUI ItemDescriptionText;
+    public TextMeshProUGUI ArmourDescriptionText;
+    public TextMeshProUGUI WeaponDescriptionText;
+    public enum ItemMenu { Items, Armour, Weapons}
+    public ItemMenu Tab = ItemMenu.Items;
     public Button UseButton;
     public Menu GameCanvas;
     public Dialogue Messages;
     public DialogueBox GameText;
     public Image ItemImage;
+    public Image ArmourImage;
+    public Image WeaponImage;
     public Stats PlayerStats;
     public PlayerMovement PlayerMovement;
     public BattleManager BattleManager;
@@ -27,6 +35,8 @@ public class ItemManager : MonoBehaviour
             ItemDescriptionText.text = "No item selected";
             UseButton.interactable = false;
             ItemImage.enabled = false;
+            WeaponImage.enabled = false;
+            ArmourImage.enabled = false;
         }
     }
 

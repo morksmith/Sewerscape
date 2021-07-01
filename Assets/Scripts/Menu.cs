@@ -67,6 +67,7 @@ public class Menu : MonoBehaviour
                 GameManager.Paused = true;
             }
         }
+       
         Active = false;
 
 
