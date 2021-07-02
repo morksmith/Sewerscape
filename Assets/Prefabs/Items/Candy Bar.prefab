@@ -148,7 +148,7 @@ MonoBehaviour:
   Type: 0
   ItemName: Candy Bar
   ItemDescription: Restores a small amount of HP
-  UiSprite: {fileID: 21300000, guid: 1780ff32b756689408411a975500995a, type: 3}
+  UiSprite: {fileID: 8033092973025764044, guid: 03acb11592bcf03489387f0a945afa1a, type: 3}
 --- !u!1 &268527872915929314
 GameObject:
   m_ObjectHideFlags: 0
