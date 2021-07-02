@@ -123,6 +123,10 @@ PrefabInstance:
       propertyPath: Defence
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 7234584345160238174, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
+      propertyPath: UiSprite
+      value: 
+      objectReference: {fileID: 8924663538930460010, guid: a155783402a2f4348a3e83dd5faef726, type: 3}
     - target: {fileID: 7234584345160238175, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
       propertyPath: m_Name
       value: Baseball Clothes

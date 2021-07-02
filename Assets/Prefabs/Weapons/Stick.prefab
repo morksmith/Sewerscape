@@ -15,7 +15,7 @@ MonoBehaviour:
   WeaponName: Stick
   WeaponDescription: A small but sturdy stick, useful for wacking foes.
   Equipped: 0
-  UiSprite: {fileID: 0}
+  UiSprite: {fileID: 5601323976189978565, guid: a03512e27c0723c42863010b5239f58a, type: 3}
   Type: 0
   MinDamage: 2
   MaxDamage: 4

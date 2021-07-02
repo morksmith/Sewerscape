@@ -15,7 +15,7 @@ MonoBehaviour:
   WeaponName: Weapon Name
   WeaponDescription: Weapon Description
   Equipped: 0
-  UiSprite: {fileID: 0}
+  UiSprite: {fileID: -761887118410055393, guid: a03512e27c0723c42863010b5239f58a, type: 3}
   Type: 0
   MinDamage: 1
   MaxDamage: 5
