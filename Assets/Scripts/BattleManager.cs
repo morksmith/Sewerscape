@@ -52,7 +52,7 @@ public class BattleManager : MonoBehaviour
             }
             if (PlayerTurn)
             {
-                if (!Player.Dead)
+                if (!Player.Dead && !BattleOver)
                 {
                     ActionMenu.SetActive(true);
                 }
@@ -70,7 +70,9 @@ public class BattleManager : MonoBehaviour
                         BattleCanvas.Active = false;
                         GameCanvas.Active = true;
                         GameManager.Paused = false;
-                        Debug.Log(GameManager.Paused);
+                        Debug.Log("Battle Over");
+                        BattleOver = false;
+                        BattleStarted = false;
                     
                     }
                 }
@@ -259,6 +261,28 @@ public class BattleManager : MonoBehaviour
         turnTimer = 0;
         Debug.Log("Player used Item");
     }
+
+    public void AttemptRun()
+    {
+        var runChance = Random.Range(0, 100);
+        ActionMenu.SetActive(false);
+
+        if (runChance < PlayerStats.RunChance)
+        {
+            BattleText.SendText(PlayerStats.PlayerName + " tried to run away!" + "\n" + PlayerStats.PlayerName + " got away safely!");
+            turnTimer = -1;            
+            BattleOver = true;
+            PlayerTurn = true;
+        }
+        else
+        {
+            BattleText.SendText(PlayerStats.PlayerName + " tried to run away!" + "\n" + PlayerStats.PlayerName + " couldn't escape!");
+            turnTimer = -1;
+            PlayerTurn = false;
+        }
+    }
+
+    
 
 
 }
