@@ -20,13 +20,7 @@ public class Item : MonoBehaviour
     public string ItemDescription = "This is the item description";
     public Sprite UiSprite;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+   
     void Update()
     {
         

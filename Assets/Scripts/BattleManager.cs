@@ -254,6 +254,32 @@ public class BattleManager : MonoBehaviour
 
 
     }
+    public void AttackSpell(Spell s)
+    {
+        PlayerTurn = false;
+        ActionMenu.SetActive(false);
+        turnTimer = -1;
+        var e = TargetEnemy;
+        float dmg = 1;
+        dmg = Random.Range(s.MinDamage, (s.MaxDamage));
+        dmg = Mathf.Clamp(dmg, 1, 999);
+        dmg *= Stats.MagicDamage;
+        dmg = Mathf.CeilToInt(dmg);
+        Debug.Log("Spell Damage = " + dmg);
+
+            if (e.HP > dmg)
+            {
+                turnTimer = 0;
+            }
+            else
+            {
+                turnTimer = -1;
+            }
+            BattleText.SendText(PlayerStats.PlayerName + " cast " + s.SpellName + "!" + "\n" + PlayerStats.PlayerName + " dealt " + dmg + " damage to " + e.EnemyName + "!");
+            e.TakeDamage(dmg, BattleText, Player);
+            EnemyEffects.Flash(Color.red);
+        
+    }
     public void PlayerUseItem()
     {
         PlayerTurn = false;
