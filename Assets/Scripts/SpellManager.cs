@@ -19,6 +19,8 @@ public class SpellManager : MonoBehaviour
     public Stats PlayerStats;
     public PlayerMovement PlayerMovement;
     public BattleManager BattleManager;
+    public Transform PlayerMesh;
+    public GameObject FirePrefab;
 
     // Start is called before the first frame update
     public void Start()
@@ -41,7 +43,8 @@ public class SpellManager : MonoBehaviour
         SelectedSpellIcon.gameObject.SetActive(true);
         SelectedSpellIcon.rectTransform.position = i.transform.position;
         SelectedSpell = i;
-        SpellNameText.text = (i.SpellName + ":" + i.MPCost + "MP");
+        SpellNameText.text = (i.SpellName + ":" +
+            "" + i.MPCost + "MP");
         SpellDescriptionText.text = i.SpellDescription;
         if(i.MPCost <= PlayerStats.MP)
         {
@@ -135,6 +138,7 @@ public class SpellManager : MonoBehaviour
             Messages.Sentences.Clear();
             Messages.Sentences.Add(PlayerStats.PlayerName + " cast Fireball!.");
             GameText.StartDialogue(Messages);
+            Instantiate(FirePrefab, Player.transform.position + PlayerMesh.forward, transform.rotation);
         }
         else
         {
