@@ -62,6 +62,24 @@ public class PlayerControl : MonoBehaviour
                 GameText.StartDialogue(d);
                 GameManager.Paused = true;
             }
+            else if (Movement.CurrentInteractive.GetComponent<Switch>() != null)
+            {
+                var d = Movement.CurrentInteractive.GetComponent<Dialogue>();
+                var s = Movement.CurrentInteractive.GetComponent<Switch>();
+                s.ActivateSwitch();
+                GameText.CurrentDialogue = d;
+                GameText.StartDialogue(d);
+                GameManager.Paused = true;
+            }
+            else if (Movement.CurrentInteractive.GetComponent<Chest>() != null)
+            {
+                var c = Movement.CurrentInteractive.GetComponent<Chest>();
+                c.OpenChest();
+                var d = Movement.CurrentInteractive.GetComponent<Dialogue>();
+                GameText.CurrentDialogue = d;
+                GameText.StartDialogue(d);
+                GameManager.Paused = true;
+            }
         }
     }
     

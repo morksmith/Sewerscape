@@ -282,8 +282,7 @@ MonoBehaviour:
   Type: 5
   SpellName: Fireball
   SpellDescription: Throws a small ball of fire at the enemy
-  CastText: 
   MPCost: 2
   UiSprite: {fileID: 21724277570606668, guid: 37ec0016e75ef1b4a8162228cd7789cd, type: 3}
-  MinDamage: 0
-  MaxDamage: 0
+  MinDamage: 4
+  MaxDamage: 6
