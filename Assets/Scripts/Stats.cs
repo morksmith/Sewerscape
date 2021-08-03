@@ -75,7 +75,7 @@ public class Stats : MonoBehaviour
         HPText.text = "HP : " + HP + "/" + MaxHP;
         MPText.text = "MP : " + MP + "/" + MaxMP;
         XPText.text = "XP : " + XP + "/" + MaxXP;
-        GoldText.text = Gold + "G";
+        GoldText.text = "$" + Gold;
         if(HP < MaxHP / 4)
         {
             HPText.color = Color.yellow;

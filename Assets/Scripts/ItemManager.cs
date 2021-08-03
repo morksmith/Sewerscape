@@ -24,6 +24,10 @@ public class ItemManager : MonoBehaviour
     public TextMeshProUGUI WeaponDescriptionText;
     public TextMeshProUGUI WeaponDamageText;
     public PlayerControl Player;
+    public Transform ItemList;
+    public Transform ArmourList;
+    public Transform WeaponList;
+    public Transform SpellList;
     public enum ItemMenu { Items, Armour, Weapons}
     public ItemMenu Tab = ItemMenu.Items;
     public Button UseButton;

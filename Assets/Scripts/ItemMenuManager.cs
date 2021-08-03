@@ -37,19 +37,28 @@ public class ItemMenuManager : MonoBehaviour
     {
         if (GameManager.InBattle)
         {
+            ItemManager.SelectedArmour = null;
+            ItemManager.SelectedItem = null;
+            ItemManager.SelectedWeapon = null;
             ItemsButton.gameObject.SetActive(false);
             ArmourButton.gameObject.SetActive(false);
             WeaponButton.gameObject.SetActive(false);
+            ItemManager.UpdateUI();
             ItemsSelected();
             
            // Debug.Log("In Battle");
         }
         else
         {
+            ItemManager.SelectedArmour = null;
+            ItemManager.SelectedItem = null;
+            ItemManager.SelectedWeapon = null;
             //Debug.Log("Not in Battle");
             ItemsButton.gameObject.SetActive(true);
             ArmourButton.gameObject.SetActive(true);
             WeaponButton.gameObject.SetActive(true);
+            ItemManager.UpdateUI();
+
         }
     }
 
