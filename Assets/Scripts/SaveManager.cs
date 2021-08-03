@@ -8,7 +8,14 @@ public class SaveManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            PlayerPrefs.DeleteAll();
+            ResetProgress();
         }
     }
+    public void ResetProgress()
+    {
+        PlayerPrefs.DeleteAll();
+
+    }
 }
+
+
