@@ -49,7 +49,7 @@ MonoBehaviour:
   MinDamage: 1
   MaxDamage: 4
   MaxHP: 6
-  HP: 6
+  HP: 0
   XP: 5
   Gold: 3
   Dead: 0

@@ -33,7 +33,7 @@ public class Chest : MonoBehaviour
         string playerName = GameObject.FindObjectOfType<Stats>().PlayerName;
         if(Type != LootType.Money)
         {
-            OpenText.Sentences.Add(playerName + " opened a chest! \nIt contained a " + LootItem.name + "!");
+            OpenText.Sentences.Add(playerName + " opened a chest! \n" + playerName + " acquired " + LootItem.name + "!");
         }
         else
         {

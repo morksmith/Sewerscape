@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6459849913531130731}
   m_LocalRotation: {x: 0.70710576, y: -0, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 6.25, y: 6.25, z: 6.25}
   m_Children: []
   m_Father: {fileID: 2359678036481319683}
@@ -157,8 +157,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UniqueID: LSChest01
   Open: 0
+  MoneyAmount: 0
   Sprite: {fileID: 3779160152761203460}
   ClosedSprite: {fileID: 7642980859614939925, guid: 0617420335e37bc4a9e36c1b45d59d10, type: 3}
   OpenSprite: {fileID: -174804484191063705, guid: 0617420335e37bc4a9e36c1b45d59d10, type: 3}
   OpenText: {fileID: 1971808775357891769}
+  Type: 0
   LootItem: {fileID: 268527871919215157, guid: 59816d5cc45509743a2d4f2280bada51, type: 3}

@@ -38,6 +38,7 @@ public class PlayerControl : MonoBehaviour
             {
                 Stats.HP = 0;
                 BattleText.SendText(e.EnemyName + " dealt " + dmg + " damage to " + Stats.PlayerName + "\n" + Stats.PlayerName + " passed out!");
+                Debug.Log("Player killed by: " + e.EnemyName);
                 Dead = true;
                 GameManager.InBattle = false;
                 //GameManager.Paused = false;
@@ -70,6 +71,17 @@ public class PlayerControl : MonoBehaviour
                     }
 
                 }
+                else if(Movement.CurrentInteractive.GetComponent<BossFight>() != null)
+                {
+                    var e = Movement.CurrentInteractive.GetComponent<BossFight>().BossEnemy;
+                    Movement.EnemyManager.SpawnBoss(e);
+                    Movement.targetPos = transform.position;
+                    Movement.StepCompleted = true;
+                    Movement.ScreenEffects.Flash(Color.white);
+                    Movement.StepCount = 0;
+                    Movement.StrengthBonus = 0;
+                }
+            }
             }
             if (Movement.CurrentInteractive.GetComponent<Switch>() != null)
             {
@@ -85,4 +97,4 @@ public class PlayerControl : MonoBehaviour
     }
     
 
-}
+

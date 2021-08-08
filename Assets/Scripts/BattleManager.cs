@@ -139,7 +139,9 @@ public class BattleManager : MonoBehaviour
     }
     public void PlayerAttacks()
     {
+        GameManager.Paused = true;
         Attack(TargetEnemy);
+        Debug.Log(TargetEnemy.name);
         PlayerTurn = false;
         ActionMenu.SetActive(false);
         turnTimer = 0;
@@ -225,7 +227,7 @@ public class BattleManager : MonoBehaviour
             {
                 turnTimer = -1;
             }
-            e.TakeDamage(dmg, BattleText, Player);
+            e.TakeDamage(dmg, BattleText, Player, true);
             
             //turnTimer = 0;
         }
@@ -243,7 +245,7 @@ public class BattleManager : MonoBehaviour
                 turnTimer = -1;
             }
             BattleText.SendText(PlayerStats.PlayerName + " dealt " + dmg + " damage to " + e.EnemyName + "!");
-            e.TakeDamage(dmg, BattleText, Player);
+            e.TakeDamage(dmg, BattleText, Player, false);
             EnemyEffects.Flash(Color.red);
             //turnTimer = 0;
         }
@@ -276,7 +278,7 @@ public class BattleManager : MonoBehaviour
                 turnTimer = -1;
             }
             BattleText.SendText(PlayerStats.PlayerName + " cast " + s.SpellName + "!" + "\n" + PlayerStats.PlayerName + " dealt " + dmg + " damage to " + e.EnemyName + "!");
-            e.TakeDamage(dmg, BattleText, Player);
+            e.TakeDamage(dmg, BattleText, Player, false);
             EnemyEffects.Flash(Color.red);
         
     }

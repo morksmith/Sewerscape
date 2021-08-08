@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
     public float XP;
     public float Gold;
     public bool Dead = false;
+    public bool DropItem = false;
+    public bool Boss = false;
     
 
     private void Start()
@@ -30,7 +32,7 @@ public class Enemy : MonoBehaviour
         
         p.TakeDamage(dmg, this);
     }
-    public void TakeDamage(float dmg, DialogueBox db, PlayerControl p)
+    public void TakeDamage(float dmg, DialogueBox db, PlayerControl p, bool Crit)
     {
         if(dmg < HP)
         {
@@ -42,10 +44,22 @@ public class Enemy : MonoBehaviour
             HP = 0;
             var goldAmount = Mathf.CeilToInt(Random.Range(Gold * 0.75f, Gold * 1.25f)) * p.Stats.GoldBonus;
             var xpAmount = XP * p.Stats.XPBonus;
-            db.SendText(p.Stats.PlayerName + " dealt " + dmg + " damage to " + EnemyName + "!" + "\n" + p.Stats.PlayerName + " killed " + EnemyName + "!" + "\n" + p.Stats.PlayerName +" gained " + xpAmount + "XP!" + "\n" + goldAmount + " dollars found!");
+            if (Crit)
+            {
+                db.SendText("Critical Hit! \n" + p.Stats.PlayerName + " dealt " + dmg + " damage to " + EnemyName + "!" + "\n" + p.Stats.PlayerName + " killed " + EnemyName + "!" + "\n" + p.Stats.PlayerName + " gained " + xpAmount + "XP!" + "\n" + goldAmount + " dollars found!");
+            }
+            else
+            {
+                db.SendText(p.Stats.PlayerName + " dealt " + dmg + " damage to " + EnemyName + "!" + "\n" + p.Stats.PlayerName + " killed " + EnemyName + "!" + "\n" + p.Stats.PlayerName + " gained " + xpAmount + "XP!" + "\n" + goldAmount + " dollars found!");
+            }
             p.PlusXP(xpAmount);
             p.Stats.Gold += goldAmount;
             Dead = true;
+            //if (Boss)
+            //{
+            //    var b = gameObject.GetComponentInParent<BossFight>();
+            //    b.KillBoss();
+            //}
             Destroy(gameObject);
         }
     }

@@ -176,6 +176,10 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else if (hit.transform.tag == "Interactive")
                 {
+                    if(hit.transform.GetComponent<BossFight>() != null)
+                    {
+                        OverEnemy = true;
+                    }
                     CurrentInteractive = hit.transform;
                 }
                 else
