@@ -59,8 +59,7 @@ public class PlayerControl : MonoBehaviour
             if(Movement.CurrentInteractive.GetComponent<Dialogue>() != null)
             {
                 var d = Movement.CurrentInteractive.GetComponent<Dialogue>();
-                GameText.CurrentDialogue = d;
-                GameText.StartDialogue(d);
+               
                 GameManager.Paused = true;
                 if (Movement.CurrentInteractive.GetComponent<Chest>() != null)
                 {
@@ -68,6 +67,8 @@ public class PlayerControl : MonoBehaviour
                     if (!c.Open)
                     {
                         c.OpenChest();
+                        GameText.CurrentDialogue = d;
+                        GameText.StartDialogue(d);
                     }
 
                 }
@@ -80,6 +81,11 @@ public class PlayerControl : MonoBehaviour
                     Movement.ScreenEffects.Flash(Color.white);
                     Movement.StepCount = 0;
                     Movement.StrengthBonus = 0;
+                }
+                else
+                {
+                    GameText.CurrentDialogue = d;
+                    GameText.StartDialogue(d);
                 }
             }
             }

@@ -37,6 +37,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        if (GameManager.Paused)
+        {
+            return;
+        }
         var tarDist = Vector3.Distance(targetPos, transform.position);
         transform.position = Vector3.Lerp(transform.position, targetPos, MoveSpeed * Time.deltaTime / tarDist);
         if(direction == 0)
@@ -92,10 +96,7 @@ public class PlayerMovement : MonoBehaviour
         {
             InteractIcon.SetActive(false);
         }
-        if (GameManager.Paused)
-        {
-            return;
-        }
+        
         if (StepCompleted)
         {
             idleTimer += Time.deltaTime;

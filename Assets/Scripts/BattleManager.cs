@@ -139,7 +139,7 @@ public class BattleManager : MonoBehaviour
     }
     public void PlayerAttacks()
     {
-        GameManager.Paused = true;
+        //GameManager.Paused = true;
         Attack(TargetEnemy);
         Debug.Log(TargetEnemy.name);
         PlayerTurn = false;

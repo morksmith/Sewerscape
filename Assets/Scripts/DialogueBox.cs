@@ -109,7 +109,10 @@ public class DialogueBox : MonoBehaviour
             charCount = 0;
             charTimer = 0;
             CurrentDialogue.CurrentSentence = 0;
-            GameManager.Paused = false;
+            if (!GameManager.InBattle)
+            {
+                GameManager.Paused = false;
+            }
 
         }
     }
