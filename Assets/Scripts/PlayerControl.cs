@@ -75,7 +75,8 @@ public class PlayerControl : MonoBehaviour
                 else if(Movement.CurrentInteractive.GetComponent<BossFight>() != null)
                 {
                     var e = Movement.CurrentInteractive.GetComponent<BossFight>().BossEnemy;
-                    Movement.EnemyManager.SpawnBoss(e);
+                    var b = Movement.CurrentInteractive.GetComponent<BossFight>();
+                    Movement.EnemyManager.SpawnBoss(e, b);
                     Movement.targetPos = transform.position;
                     Movement.StepCompleted = true;
                     Movement.ScreenEffects.Flash(Color.white);

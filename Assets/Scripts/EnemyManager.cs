@@ -27,10 +27,9 @@ public class EnemyManager : MonoBehaviour
         Battle.StartBattle(newEnemy.GetComponent<Enemy>());
         GameManager.Paused = true;
     }
-    public void SpawnBoss(Enemy e)
+    public void SpawnBoss(Enemy e, BossFight b)
     {
-        Instantiate(e, transform);
-        var newBoss = Instantiate(e, transform);
+        var newBoss = Instantiate(e, b.transform);
         Battle.StartBattle(newBoss.GetComponent<Enemy>());
         GameManager.Paused = true;
         

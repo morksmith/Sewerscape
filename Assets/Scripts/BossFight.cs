@@ -9,6 +9,7 @@ public class BossFight : MonoBehaviour
     public bool Dead = false;
     public string UniqueID;
     public Dialogue VictoryText;
+    public DialogueBox GameText;
     private Stats stats;
     private ItemManager items;
     public enum LootType
@@ -27,6 +28,8 @@ public class BossFight : MonoBehaviour
         items = GameObject.FindObjectOfType<ItemManager>();
         VictoryText.Sentences.Clear();
         string playerName = GameObject.FindObjectOfType<Stats>().PlayerName;
+        GameText = GameObject.FindObjectOfType<DialogueBox>();
+
 
         VictoryText.Sentences.Add(playerName + " defeated " + BossName + "! \n" + playerName + " acquired " + LootItem.name + "!");
 
@@ -47,6 +50,8 @@ public class BossFight : MonoBehaviour
     {
         Debug.Log(UniqueID + " was killed!");
         PlayerPrefs.SetString(UniqueID, UniqueID + " Dead");
+        GameText.CurrentDialogue = VictoryText;
+        GameText.StartDialogue(VictoryText);
         Dead = true;
         if (Type == LootType.Item)
         {

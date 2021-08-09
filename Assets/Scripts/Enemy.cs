@@ -41,8 +41,17 @@ public class Enemy : MonoBehaviour
         }
         else
         {
+            var goldAmount = Gold;
             HP = 0;
-            var goldAmount = Mathf.CeilToInt(Random.Range(Gold * 0.75f, Gold * 1.25f)) * p.Stats.GoldBonus;
+            if (!Boss)
+            {
+                goldAmount = Mathf.CeilToInt(Random.Range(Gold * 0.75f, Gold * 1.25f)) * p.Stats.GoldBonus;
+            }
+            else
+            {
+                goldAmount = Gold * p.Stats.GoldBonus;
+
+            }
             var xpAmount = XP * p.Stats.XPBonus;
             if (Crit)
             {
@@ -55,12 +64,13 @@ public class Enemy : MonoBehaviour
             p.PlusXP(xpAmount);
             p.Stats.Gold += goldAmount;
             Dead = true;
-            //if (Boss)
-            //{
-            //    var b = gameObject.GetComponentInParent<BossFight>();
-            //    b.KillBoss();
-            //}
-            Destroy(gameObject);
+            if (Boss)
+            {
+                var b = GetComponentInParent<BossFight>();
+                db.StartDialogue(b.VictoryText);
+                b.KillBoss();
+            }
+            Destroy(GetComponentInParent<BossFight>().gameObject);
         }
     }
 
