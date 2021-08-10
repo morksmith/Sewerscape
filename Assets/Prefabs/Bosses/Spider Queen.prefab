@@ -44,12 +44,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyName: Spider Queen
-  BattleSprite: {fileID: 21300000, guid: 3dcf38af1ac1a3641ade402fd3c7ebda, type: 3}
-  Speed: 1
-  MinDamage: 1
-  MaxDamage: 1
-  MaxHP: 1
-  HP: 1
+  BattleSprite: {fileID: 21300000, guid: 94611afc2ade1db43b0553babe5002b2, type: 3}
+  Speed: 3
+  MinDamage: 5
+  MaxDamage: 10
+  MaxHP: 30
+  HP: 30
   XP: 100
   Gold: 100
   Dead: 0

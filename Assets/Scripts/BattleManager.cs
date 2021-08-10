@@ -117,7 +117,9 @@ public class BattleManager : MonoBehaviour
 
     public void StartBattle(Enemy e)
     {
+
         GameManager.InBattle = true;
+        
         if (e.Speed > PlayerStats.TurnOrder)
         {
             PlayerTurn = false;
@@ -127,6 +129,18 @@ public class BattleManager : MonoBehaviour
             PlayerTurn = true;
         }
         TargetEnemy = e;
+        if (TargetEnemy.Boss)
+        {
+            EnemySprite.rectTransform.sizeDelta = new Vector2(256, 256);
+            EnemySprite.rectTransform.anchoredPosition = new Vector2(0, 0);
+        }
+        else
+        {
+            EnemySprite.rectTransform.sizeDelta = new Vector2(128, 128);
+            EnemySprite.rectTransform.anchoredPosition = new Vector2(0, -64);
+
+
+        }
         EnemySprite.enabled = true;
         BattleText.SendText(TargetEnemy.EnemyName + " attacked " + PlayerStats.PlayerName + "!");
         EnemySprite.sprite = TargetEnemy.BattleSprite;
