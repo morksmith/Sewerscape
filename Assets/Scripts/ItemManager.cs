@@ -71,7 +71,8 @@ public class ItemManager : MonoBehaviour
         if (SelectedWeapon == null)
         {
             WeaponNameText.text = " ";
-            WeaponDescriptionText.text = "No weapon selected";
+            WeaponDamageText.text = " ";
+            WeaponDescriptionText.text = "No weapon selected";            
             WeaponImage.enabled = false;
             EquipWeaponButton.interactable = false;
         }

@@ -64,12 +64,9 @@ public class PlayerControl : MonoBehaviour
                 if (Movement.CurrentInteractive.GetComponent<Chest>() != null)
                 {
                     var c = Movement.CurrentInteractive.GetComponent<Chest>();
-                    if (!c.Open)
-                    {
-                        c.OpenChest();
-                        GameText.CurrentDialogue = d;
-                        GameText.StartDialogue(d);
-                    }
+                    c.OpenChest();
+                    GameText.CurrentDialogue = d;
+                    GameText.StartDialogue(d);
 
                 }
                 else if(Movement.CurrentInteractive.GetComponent<BossFight>() != null)

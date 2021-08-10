@@ -70,7 +70,7 @@ public class Enemy : MonoBehaviour
                 db.StartDialogue(b.VictoryText);
                 b.KillBoss();
             }
-            Destroy(GetComponentInParent<BossFight>().gameObject);
+            
         }
     }
 

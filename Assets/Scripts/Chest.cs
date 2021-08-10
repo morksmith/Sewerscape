@@ -55,34 +55,41 @@ public class Chest : MonoBehaviour
     }
     public void OpenChest()
     {
-        Debug.Log(UniqueID + " was opened!");
-        PlayerPrefs.SetString(UniqueID, UniqueID + " Open");
-        Open = true;
-        Sprite.sprite = OpenSprite;
-        if(Type == LootType.Item)
+        if (!Open)
         {
-            Instantiate(LootItem, items.ItemList);
+            Debug.Log(UniqueID + " was opened!");
+            PlayerPrefs.SetString(UniqueID, UniqueID + " Open");
+            Open = true;
+            Sprite.sprite = OpenSprite;
+            if (Type == LootType.Item)
+            {
+                Instantiate(LootItem, items.ItemList);
+            }
+            else if (Type == LootType.Armour)
+            {
+                Instantiate(LootItem, items.ArmourList);
+            }
+            else if (Type == LootType.Weapon)
+            {
+                Instantiate(LootItem, items.WeaponList);
+            }
+            else if (Type == LootType.Spell)
+            {
+                Instantiate(LootItem, items.SpellList);
+            }
+            else if (Type == LootType.Money)
+            {
+                stats.Gold += MoneyAmount;
+                stats.UpdateStats();
+            }
         }
-        else if (Type == LootType.Armour)
+        else
         {
-            Instantiate(LootItem, items.ArmourList);
+            OpenText.Sentences.Clear();
+            OpenText.Sentences.Add("Empty...");
         }
-        else if (Type == LootType.Weapon)
-        {
-            Instantiate(LootItem, items.WeaponList);
-        }
-        else if (Type == LootType.Spell)
-        {
-            Instantiate(LootItem, items.SpellList);
-        }
-        else if (Type == LootType.Money)
-        {
-            stats.Gold += MoneyAmount;
-            stats.UpdateStats();
-        }
-        OpenText.Sentences.Clear();
-        OpenText.Sentences.Add("Empty...");
-        this.enabled = false;
+
+        
 
     }
     public void CloseChest()

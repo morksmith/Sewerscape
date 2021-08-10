@@ -132,12 +132,10 @@ public class BattleManager : MonoBehaviour
         if (TargetEnemy.Boss)
         {
             EnemySprite.rectTransform.sizeDelta = new Vector2(256, 256);
-            EnemySprite.rectTransform.anchoredPosition = new Vector2(0, 0);
         }
         else
         {
             EnemySprite.rectTransform.sizeDelta = new Vector2(128, 128);
-            EnemySprite.rectTransform.anchoredPosition = new Vector2(0, -64);
 
 
         }
@@ -242,7 +240,7 @@ public class BattleManager : MonoBehaviour
                 turnTimer = -1;
             }
             e.TakeDamage(dmg, BattleText, Player, true);
-            
+            EnemyEffects.Flash(Color.red);
             //turnTimer = 0;
         }
         else

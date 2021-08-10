@@ -71,6 +71,7 @@ public class BossFight : MonoBehaviour
         }
         
         this.enabled = false;
+        Destroy(this.gameObject);
 
     }
 
