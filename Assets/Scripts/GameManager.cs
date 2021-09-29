@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
                 Messages.Sentences.Clear();
                 Messages.Sentences.Add(PlayerStats.PlayerName + " woke up at the bottom of the sewer.");
                 var goldLost = Mathf.RoundToInt(PlayerStats.Gold / 2);
-                Messages.Sentences.Add(PlayerStats.PlayerName + " lost " + goldLost + " gold!");
+                Messages.Sentences.Add(PlayerStats.PlayerName + " lost " + goldLost + " dollars!");
                 PlayerStats.Gold -= goldLost;
                 PlayerStats.HP = PlayerStats.MaxHP;
                 PlayerStats.MP = PlayerStats.MaxMP;
