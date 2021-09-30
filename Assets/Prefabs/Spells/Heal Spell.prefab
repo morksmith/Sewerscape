@@ -211,7 +211,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 0.25
+  m_PixelsPerUnitMultiplier: 2
 --- !u!114 &1040304222111640407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,6 +226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -282,7 +283,6 @@ MonoBehaviour:
   Type: 0
   SpellName: Heal
   SpellDescription: Provides a small amount of healing
-  CastText: 
   MPCost: 5
   UiSprite: {fileID: 6401617475479750189, guid: 37ec0016e75ef1b4a8162228cd7789cd, type: 3}
   MinDamage: 0

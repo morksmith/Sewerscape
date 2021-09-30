@@ -12,6 +12,42 @@ PrefabInstance:
       value: Baseball
       objectReference: {fileID: 0}
     - target: {fileID: 7234584345160238144, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7234584345160238144, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7234584345160238144, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7234584345160238144, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7234584345160238144, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7234584345160238144, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7234584345160238144, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7234584345160238144, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 460
+      objectReference: {fileID: 0}
+    - target: {fileID: 7234584345160238144, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 96
+      objectReference: {fileID: 0}
+    - target: {fileID: 7234584345160238144, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -22,6 +58,10 @@ PrefabInstance:
     - target: {fileID: 7234584345160238144, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7234584345160238144, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7234584345160238144, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
       propertyPath: m_LocalRotation.x
@@ -36,12 +76,12 @@ PrefabInstance:
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7234584345160238144, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
+      propertyPath: m_AnchoredPosition.x
+      value: 230
       objectReference: {fileID: 0}
     - target: {fileID: 7234584345160238144, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
+      propertyPath: m_AnchoredPosition.y
+      value: -56
       objectReference: {fileID: 0}
     - target: {fileID: 7234584345160238144, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -54,46 +94,6 @@ PrefabInstance:
     - target: {fileID: 7234584345160238144, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7234584345160238144, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 230
-      objectReference: {fileID: 0}
-    - target: {fileID: 7234584345160238144, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -56
-      objectReference: {fileID: 0}
-    - target: {fileID: 7234584345160238144, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 460
-      objectReference: {fileID: 0}
-    - target: {fileID: 7234584345160238144, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 96
-      objectReference: {fileID: 0}
-    - target: {fileID: 7234584345160238144, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7234584345160238144, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7234584345160238144, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7234584345160238144, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7234584345160238144, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7234584345160238144, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7234584345160238145, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -112,14 +112,6 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7234584345160238174, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
-      propertyPath: ArmourName
-      value: Baseball Clothes
-      objectReference: {fileID: 0}
-    - target: {fileID: 7234584345160238174, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
-      propertyPath: ArmourDescription
-      value: A beat up old uniform, used for a child's baseball team.
-      objectReference: {fileID: 0}
-    - target: {fileID: 7234584345160238174, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
       propertyPath: Defence
       value: 4
       objectReference: {fileID: 0}
@@ -127,6 +119,14 @@ PrefabInstance:
       propertyPath: UiSprite
       value: 
       objectReference: {fileID: 8924663538930460010, guid: a155783402a2f4348a3e83dd5faef726, type: 3}
+    - target: {fileID: 7234584345160238174, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
+      propertyPath: ArmourName
+      value: Baseball Clothes
+      objectReference: {fileID: 0}
+    - target: {fileID: 7234584345160238174, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
+      propertyPath: ArmourDescription
+      value: A beat up old uniform, used for a child's baseball team.
+      objectReference: {fileID: 0}
     - target: {fileID: 7234584345160238175, guid: 1d4b5777509142540b9fb6df5d093aeb, type: 3}
       propertyPath: m_Name
       value: Baseball Clothes
