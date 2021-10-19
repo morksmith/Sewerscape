@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class BattleEffects : MonoBehaviour
 {
     private Image img;
     public float FlashTime = 1;
     public bool Flashing;
+    public bool Fading;
     public bool Attacking;
     public bool Dodging;
     private Color startColor;
@@ -19,6 +21,8 @@ public class BattleEffects : MonoBehaviour
     public float MoveSpeed = 5;
     private Vector2 targetPos;
     private Vector2 startPos;
+
+    public UnityEvent StoredEvent;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +52,27 @@ public class BattleEffects : MonoBehaviour
                 step = 0;
                 img.enabled = true;
                 Flashing = false;
+            }
+        }
+        if (Fading)
+        {
+            if (step < 1)
+            {
+
+                step += Time.deltaTime / FlashTime / 2;
+                img.color = Color.Lerp(new Color(0,0,0,0), FlashColour, step);
+
+            }
+            else
+            {
+                if(StoredEvent!= null)
+                {
+                    StoredEvent.Invoke();
+                }
+                step = 0;
+                img.enabled = true;
+                Fading = false;
+                Flash(Color.black);
             }
         }
         if (Attacking)
@@ -102,6 +127,15 @@ public class BattleEffects : MonoBehaviour
         Flashing = true;
         step = 0;
         
+    }
+    public void FadeToColour(Color c, UnityEvent ue)
+    {
+        img.color = c;
+        FlashColour = c;
+        Fading = true;
+        step = 0;
+        StoredEvent = ue;
+
     }
     public void Attack()
     {

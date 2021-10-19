@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.Events;
 public class PlayerMovement : MonoBehaviour
 {
     public BattleManager Battle;
+    public Stats Stats;
     public BattleEffects ScreenEffects;
     public Transform CurrentInteractive;
     public GameObject InteractIcon;
@@ -26,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     public float StrengthBonus = 0;
     private float idleTimer;
     private int direction;
+    public UnityEvent RestEvent;
+
 
     // Start is called before the first frame update
     void Start()
@@ -246,5 +249,15 @@ public class PlayerMovement : MonoBehaviour
         StepCount = 0;
         moveVector = new Ray(transform.position + transform.up * 2, -transform.up);
 
+    }
+    public void StartRest()
+    {
+        ScreenEffects.FadeToColour(Color.black, RestEvent);
+    }
+
+    public void Rest()
+    {
+        Stats.HP = Stats.MaxHP;
+        Stats.MP = Stats.MaxMP;
     }
 }
