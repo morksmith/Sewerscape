@@ -252,12 +252,16 @@ public class PlayerMovement : MonoBehaviour
     }
     public void StartRest()
     {
+        SpriteAnimator.Play("Lie Down");
         ScreenEffects.FadeToColour(Color.black, RestEvent);
     }
 
     public void Rest()
     {
+        SpriteAnimator.Play("Stand Up");
+        Walking = true;
         Stats.HP = Stats.MaxHP;
         Stats.MP = Stats.MaxMP;
+        direction = 2;
     }
 }

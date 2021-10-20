@@ -108,6 +108,7 @@ public class PlayerControl : MonoBehaviour
             GameManager.Paused = true;
             Movement.StartRest();
             transform.position = Movement.CurrentInteractive.transform.position;
+            Movement.targetPos = Movement.CurrentInteractive.transform.position;
         }
 
     }
