@@ -14,6 +14,7 @@ public class PlayerControl : MonoBehaviour
     private Vector3 startPosition;
 
 
+
     private void Update()
     {
         
@@ -86,19 +87,34 @@ public class PlayerControl : MonoBehaviour
                     GameText.StartDialogue(d);
                 }
             }
-            }
-            if (Movement.CurrentInteractive.GetComponent<Switch>() != null)
-            {
+        }
+        if (Movement.CurrentInteractive.GetComponent<Switch>() != null)
+        {
                 var d = Movement.CurrentInteractive.GetComponent<Dialogue>();
                 var s = Movement.CurrentInteractive.GetComponent<Switch>();
                 s.ActivateSwitch();
                 GameText.CurrentDialogue = d;
                 GameText.StartDialogue(d);
                 GameManager.Paused = true;
-            }
-            
         }
+        if (Movement.CurrentInteractive.GetComponent<RestPoint>() != null)
+        {
+            var d = Movement.CurrentInteractive.GetComponent<Dialogue>();
+            d.Sentences.Clear();
+            d.Sentences.Add(Stats.PlayerName + " took a moment to rest.");
+            d.Sentences.Add(Stats.PlayerName + " felt refreshed!");
+            GameText.CurrentDialogue = d;
+            GameText.StartDialogue(d);
+            GameManager.Paused = true;
+            Movement.StartRest();
+            transform.position = Movement.CurrentInteractive.transform.position;
+        }
+
     }
+    
+}
+
+   
     
 
 
