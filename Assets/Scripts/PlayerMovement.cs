@@ -39,16 +39,16 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void FixedUpdate()
     {
         if (GameManager.Paused)
         {
             return;
         }
-        
+
         if (direction == 0)
         {
-            if(Walking)
+            if (Walking)
             {
                 SpriteAnimator.Play("Walk Up");
             }
@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
                 SpriteAnimator.Play("Idle Up");
             }
         }
-        else if(direction == 1)
+        else if (direction == 1)
         {
             if (Walking)
             {
@@ -99,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
         {
             InteractIcon.SetActive(false);
         }
-        
+
         if (StepCompleted)
         {
             idleTimer += Time.deltaTime;
@@ -126,38 +126,34 @@ public class PlayerMovement : MonoBehaviour
                 {
                     EnemyCheck();
                     targetPos = transform.position;
-                }
-                
+                }                
                 StepCompleted = true;
-                CheckAhead();
-                              
+                if (direction == 1)
+                {
+                    CheckForInteractables(transform.position + new Vector3(1, 0, -1));
+                }
+                if (direction == 3)
+                {
+                    CheckForInteractables(transform.position + new Vector3(-1, 0, -1));
+                }
+                if (direction == 0)
+                {
+                    CheckForInteractables(transform.position + new Vector3(0, 1, -1));
+                }
+                if (direction == 2)
+                {
+                    CheckForInteractables(transform.position + new Vector3(0, -1, -1));
+                }
 
             }
             else
             {
-                RaycastHit2D hitI = Physics2D.Raycast(moveVector.origin, moveVector.direction, 1, ~Fog);
-                if (hitI.collider != null)
-                {
-                    if (hitI.transform.tag == "Interactive")
-                    {
-                        if (hitI.transform.GetComponent<BossFight>() != null)
-                        {
-                            OverEnemy = true;
-                        }
-                        CurrentInteractive = hitI.transform;
-                    }
-                    else
-                    {
-                        targetPos = transform.position;
-                        CurrentInteractive = null;
-                    }
-                }
+                
+                
                 if (Input.GetAxis("Horizontal") > 0 || Joystick.Horizontal > 0.5f)
                 {
                     moveVector = new Ray(transform.position + new Vector3(1, 0, 0), Vector3.forward);
                     direction = 1;
-                    Walking = true;
-                    idleTimer = 0;
                     CheckAhead();
 
                 }
@@ -165,8 +161,6 @@ public class PlayerMovement : MonoBehaviour
                 {
                     moveVector = new Ray(transform.position + new Vector3(-1, 0, 0), Vector3.forward);
                     direction = 3;
-                    Walking = true;
-                    idleTimer = 0;
                     CheckAhead();
 
 
@@ -175,8 +169,6 @@ public class PlayerMovement : MonoBehaviour
                 {
                     moveVector = new Ray(transform.position + new Vector3(0, 1, 0), Vector3.forward);
                     direction = 0;
-                    Walking = true;
-                    idleTimer = 0;
                     CheckAhead();
 
                 }
@@ -184,11 +176,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     moveVector = new Ray(transform.position + new Vector3(0, -1, 0), Vector3.forward);
                     direction = 2;
-                    Walking = true;
-                    idleTimer = 0;
                     CheckAhead();
-
-
                 }
                 
 
@@ -199,7 +187,28 @@ public class PlayerMovement : MonoBehaviour
 
         }
         
+    }
 
+    public void CheckForInteractables(Vector3 dir)
+    {
+        RaycastHit2D hit = Physics2D.Raycast(dir, Vector3.forward, ~Fog);
+        if (hit.collider != null)
+        {
+            if (hit.transform.tag == "Interactive")
+            {
+                if (hit.transform.GetComponent<BossFight>() != null)
+                {
+                    OverEnemy = true;
+                }
+                CurrentInteractive = hit.transform;
+
+            }
+            else
+            {
+                targetPos = transform.position;
+                CurrentInteractive = null;
+            }
+        }
     }
 
     public void CheckAhead()
@@ -211,6 +220,8 @@ public class PlayerMovement : MonoBehaviour
             if (hit.transform.tag == "Floor")
             {
                 targetPos = new Vector3(Mathf.RoundToInt(moveVector.origin.x), Mathf.RoundToInt(moveVector.origin.y), 0);
+                Walking = true;
+                idleTimer = 0;
                 OverEnemy = false;
                 CurrentInteractive = null;
             }
@@ -228,7 +239,7 @@ public class PlayerMovement : MonoBehaviour
                 CurrentInteractive = null;
             }
         }
-        RaycastHit2D eHit = Physics2D.Raycast(enemyVector.origin, enemyVector.direction);
+        RaycastHit2D eHit = Physics2D.Raycast(moveVector.origin, moveVector.direction);
         if (eHit.transform.tag == "Fog")
         {
             OverEnemy = true;
