@@ -8,11 +8,13 @@ TagManager:
   - Enemy
   - Interactive
   - Wall
+  - Fog
+  - Floor
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Fog
   - Water
   - UI
   - 

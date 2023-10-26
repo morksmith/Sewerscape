@@ -192,7 +192,7 @@ TextureImporter:
       213: 7108021944290544014
     second: Monster Sprites_62
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -213,6 +213,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -251,6 +252,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -278,6 +280,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: 4
@@ -1624,6 +1638,70 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Monster Sprites_4: 482294736346426456
+      Monster Sprites_13: -5950501817055497916
+      Monster Sprites_16: 3711651611501055180
+      Monster Sprites_42: 4262216995457060720
+      Monster Sprites_53: 7156525353066366243
+      Monster Sprites_0: 7559382065434247217
+      Monster Sprites_29: 1811302537730576046
+      Monster Sprites_15: -344577444495776304
+      Monster Sprites_7: 5384873063874538342
+      Monster Sprites_5: -1974615230211743237
+      Monster Sprites_11: -1901556863929227514
+      Monster Sprites_37: 7184453128351993660
+      Monster Sprites_49: 139776048056045906
+      Monster Sprites_22: 6829142734629592191
+      Monster Sprites_57: 4975594265891039495
+      Monster Sprites_33: -3246912659141402487
+      Monster Sprites_17: 5580298587668895666
+      Monster Sprites_50: 1380708720616071645
+      Monster Sprites_55: -6236294769877466579
+      Monster Sprites_60: -2026262005001148174
+      Monster Sprites_61: 2663233743257901351
+      Monster Sprites_8: 9097945863593930632
+      Monster Sprites_43: -6812148313010336014
+      Monster Sprites_32: -835361990803411211
+      Monster Sprites_10: 3837090429914702033
+      Monster Sprites_40: 6847501439982145910
+      Monster Sprites_48: 474660079946115203
+      Monster Sprites_44: 2701968797154723352
+      Monster Sprites_9: -5096424890123381761
+      Monster Sprites_52: 5287480863145591893
+      Monster Sprites_3: -5759607271801382037
+      Monster Sprites_62: 7108021944290544014
+      Monster Sprites_35: -660270752353138187
+      Monster Sprites_38: -5538285003935729870
+      Monster Sprites_25: 94774041021880077
+      Monster Sprites_51: 6764765205659804338
+      Monster Sprites_12: 8414193833510469701
+      Monster Sprites_36: -2074556683669008638
+      Monster Sprites_6: -8971777506451223962
+      Monster Sprites_31: 7532185002793921951
+      Monster Sprites_24: 13602920700443989
+      Monster Sprites_45: 9122832718252231593
+      Monster Sprites_41: -9210885214128671636
+      Monster Sprites_46: 1279126584271909621
+      Monster Sprites_26: 3864815456564707252
+      Monster Sprites_23: 4541640733316655271
+      Monster Sprites_58: 769139232910580278
+      Monster Sprites_27: -8193685617783135137
+      Monster Sprites_34: 5014850400811818550
+      Monster Sprites_20: 7431865407386986315
+      Monster Sprites_30: -241555332007232445
+      Monster Sprites_1: -8086076476859523310
+      Monster Sprites_14: 3077186968392896849
+      Monster Sprites_18: -3945343395909222859
+      Monster Sprites_47: 794209154097202534
+      Monster Sprites_54: 5538624037452126926
+      Monster Sprites_59: 1348123726164804620
+      Monster Sprites_19: -6136383344552112525
+      Monster Sprites_39: -4375837248216190204
+      Monster Sprites_21: 2224096302878473879
+      Monster Sprites_28: -2968328668157344494
+      Monster Sprites_2: 5271992901840271332
+      Monster Sprites_56: -8733846395723814295
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -81,7 +81,7 @@ TextureImporter:
       213: -6968810455903701224
     second: Spells_15
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -102,6 +102,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -140,6 +141,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -177,6 +179,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 128
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -196,7 +210,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 9695489d5ed953c60800000000000000
-      internalID: 7797311940384282985
+      internalID: 21724277570606668
       vertices: []
       indices: 
       edges: []
@@ -217,7 +231,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: bdc53e650730bfa10800000000000000
-      internalID: 1944151445169462491
+      internalID: 256464799880219578
       vertices: []
       indices: 
       edges: []
@@ -238,7 +252,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: eece318f597404510800000000000000
-      internalID: 1531302582743723246
+      internalID: 5677581674436598990
       vertices: []
       indices: 
       edges: []
@@ -259,7 +273,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 8472077e054b98ec0800000000000000
-      internalID: -3564119370513766584
+      internalID: -6001665523611383906
       vertices: []
       indices: 
       edges: []
@@ -280,7 +294,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 31261d7630b777c30800000000000000
-      internalID: 4357086419061137939
+      internalID: 1703676676778900814
       vertices: []
       indices: 
       edges: []
@@ -301,7 +315,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 7cb92f40d7ff3ee80800000000000000
-      internalID: -8150389988191462457
+      internalID: 6401617475479750189
       vertices: []
       indices: 
       edges: []
@@ -322,7 +336,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: cc8aec9b3b0bde660800000000000000
-      internalID: 7416778447312038092
+      internalID: 4583975785177963136
       vertices: []
       indices: 
       edges: []
@@ -343,7 +357,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 5ad902a905d331f00800000000000000
-      internalID: 1086279351518928293
+      internalID: 4224256904415493654
       vertices: []
       indices: 
       edges: []
@@ -364,7 +378,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 523b33ac8cc3f98d0800000000000000
-      internalID: -2837482407136611547
+      internalID: -3519151694230490532
       vertices: []
       indices: 
       edges: []
@@ -385,7 +399,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 9be9c11bd43021df0800000000000000
-      internalID: -211102600314184007
+      internalID: 6697529448850347069
       vertices: []
       indices: 
       edges: []
@@ -526,6 +540,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Spells_15: -6968810455903701224
+      Spells_10: -8855882967570572093
+      Spells_0: 21724277570606668
+      Spells_13: -3836807369376681046
+      Spells_3: -6001665523611383906
+      Spells_12: 8320994142880437126
+      Spells_1: 256464799880219578
+      Spells_2: 5677581674436598990
+      Spells_8: -3519151694230490532
+      Spells_14: 2107951514782406004
+      Spells_4: 1703676676778900814
+      Spells_7: 4224256904415493654
+      Spells_9: 6697529448850347069
+      Spells_5: 6401617475479750189
+      Spells_6: 4583975785177963136
+      Spells_11: -6573212992980730134
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

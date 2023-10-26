@@ -10,10 +10,10 @@ public class PlayerMovement : MonoBehaviour
     public BattleEffects ScreenEffects;
     public Transform CurrentInteractive;
     public GameObject InteractIcon;
-    public Transform PlayerMesh;
     public FloatingJoystick Joystick;
     public float MoveSpeed;
     public int StepCount = 0;
+    public bool IsMoving = false;
     public bool StepCompleted = false;
     public bool OverEnemy = false;
     public bool Walking = false;
@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     private float idleTimer;
     private int direction;
     public UnityEvent RestEvent;
+    public LayerMask Fog;
 
 
     // Start is called before the first frame update
@@ -44,9 +45,8 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
-        var tarDist = Vector3.Distance(targetPos, transform.position);
-        transform.position = Vector3.Lerp(transform.position, targetPos, MoveSpeed * Time.deltaTime / tarDist);
-        if(direction == 0)
+        
+        if (direction == 0)
         {
             if(Walking)
             {
@@ -108,8 +108,15 @@ public class PlayerMovement : MonoBehaviour
                 Walking = false;
             }
         }
-        
-        if (tarDist < 0.01f && !GameManager.Paused)
+        var tarDist = Vector3.Distance(targetPos, transform.position);
+        if (tarDist > 0.01f)
+        {
+            transform.position = Vector3.Lerp(transform.position, targetPos, MoveSpeed * Time.deltaTime / tarDist);
+            StepCompleted = false;
+            SpriteAnimator.SetBool("Walking", true);
+            idleTimer = 0;
+        }
+        else
         {
             if (!StepCompleted)
             {
@@ -120,109 +127,116 @@ public class PlayerMovement : MonoBehaviour
                     EnemyCheck();
                     targetPos = transform.position;
                 }
+                
                 StepCompleted = true;
+                CheckAhead();
                               
 
             }
             else
             {
-                //Debug.Log(Joystick.Horizontal + " - " + Joystick.Vertical);
+                RaycastHit2D hitI = Physics2D.Raycast(moveVector.origin, moveVector.direction, 1, ~Fog);
+                if (hitI.collider != null)
+                {
+                    if (hitI.transform.tag == "Interactive")
+                    {
+                        if (hitI.transform.GetComponent<BossFight>() != null)
+                        {
+                            OverEnemy = true;
+                        }
+                        CurrentInteractive = hitI.transform;
+                    }
+                    else
+                    {
+                        targetPos = transform.position;
+                        CurrentInteractive = null;
+                    }
+                }
                 if (Input.GetAxis("Horizontal") > 0 || Joystick.Horizontal > 0.5f)
                 {
-                    moveVector = new Ray(transform.position + Vector3.right + (Vector3.up * 2), Vector3.down);
-                    enemyVector = new Ray(transform.position + Vector3.right + (Vector3.up * -2), Vector3.up);
-                    PlayerMesh.eulerAngles = new Vector3(0, 90, 0);
+                    moveVector = new Ray(transform.position + new Vector3(1, 0, 0), Vector3.forward);
                     direction = 1;
                     Walking = true;
                     idleTimer = 0;
+                    CheckAhead();
 
                 }
                 if (Input.GetAxis("Horizontal") < 0 || Joystick.Horizontal < -0.5f)
                 {
-                    moveVector = new Ray(transform.position - Vector3.right + (Vector3.up * 2), Vector3.down);
-                    enemyVector = new Ray(transform.position - Vector3.right + (Vector3.up * -2), Vector3.up);
-                    PlayerMesh.eulerAngles = new Vector3(0, -90, 0);
+                    moveVector = new Ray(transform.position + new Vector3(-1, 0, 0), Vector3.forward);
                     direction = 3;
                     Walking = true;
                     idleTimer = 0;
+                    CheckAhead();
+
 
                 }
                 if (Input.GetAxis("Vertical") > 0 || Joystick.Vertical > 0.5f)
                 {
-                    moveVector = new Ray(transform.position + Vector3.forward + (Vector3.up * 2), Vector3.down);
-                    enemyVector = new Ray(transform.position + Vector3.forward + (Vector3.up * -2), Vector3.up);
-                    PlayerMesh.eulerAngles = new Vector3(0, 0, 0);
+                    moveVector = new Ray(transform.position + new Vector3(0, 1, 0), Vector3.forward);
                     direction = 0;
                     Walking = true;
                     idleTimer = 0;
+                    CheckAhead();
+
                 }
                 if (Input.GetAxis("Vertical") < 0 || Joystick.Vertical < -0.5f)
                 {
-                    moveVector = new Ray(transform.position - Vector3.forward + (Vector3.up * 2), Vector3.down);
-                    enemyVector = new Ray(transform.position - Vector3.forward + (Vector3.up * -2), Vector3.up);
-                    PlayerMesh.eulerAngles = new Vector3(0, 180, 0);
+                    moveVector = new Ray(transform.position + new Vector3(0, -1, 0), Vector3.forward);
                     direction = 2;
                     Walking = true;
                     idleTimer = 0;
+                    CheckAhead();
 
-                }
 
-
-            }
-            if (Physics.Raycast(moveVector, out hit))
-            {
-                if (hit.transform.tag == "Ground")
-                {
-                    targetPos = new Vector3(Mathf.RoundToInt(hit.point.x), 0, Mathf.RoundToInt(hit.point.z));
-                    OverEnemy = false;
-                    CurrentInteractive = null;
-
-                }
-                else if (hit.transform.tag == "Interactive")
-                {
-                    if(hit.transform.GetComponent<BossFight>() != null)
-                    {
-                        OverEnemy = true;
-                    }
-                    CurrentInteractive = hit.transform;
-                }
-                else
-                {
-                    targetPos = transform.position;
-                    CurrentInteractive = null;
-                }
-            }
-            if (Physics.Raycast(enemyVector, out hit))
-            {
-                if(hit.transform.tag == "Enemy")
-                {
-                    OverEnemy = true;
-                    CurrentInteractive = null;
                 }
                 
+
             }
-        }
-        else
-        {
-            StepCompleted = false;
-            SpriteAnimator.SetBool("Walking", true);
-            idleTimer = 0;
+
+            
+
 
         }
-        Ray ray = new Ray(PlayerMesh.transform.position + PlayerMesh.transform.forward + (Vector3.up * 2), Vector3.down);
-        if(Physics.Raycast(ray, out hit))
+        
+
+    }
+
+    public void CheckAhead()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(moveVector.origin, moveVector.direction, 1, ~Fog);
+        if (hit.collider != null)
         {
-            if(hit.transform.tag == "Interactive")
+            Debug.Log(hit.collider.tag);
+            if (hit.transform.tag == "Floor")
             {
+                targetPos = new Vector3(Mathf.RoundToInt(moveVector.origin.x), Mathf.RoundToInt(moveVector.origin.y), 0);
+                OverEnemy = false;
+                CurrentInteractive = null;
+            }
+            else if (hit.transform.tag == "Interactive")
+            {
+                if (hit.transform.GetComponent<BossFight>() != null)
+                {
+                    OverEnemy = true;
+                }
                 CurrentInteractive = hit.transform;
             }
             else
             {
+                targetPos = transform.position;
                 CurrentInteractive = null;
             }
         }
-
+        RaycastHit2D eHit = Physics2D.Raycast(enemyVector.origin, enemyVector.direction);
+        if (eHit.transform.tag == "Fog")
+        {
+            OverEnemy = true;
+            CurrentInteractive = null;
+        }
     }
+
+    
     public void EnemyCheck()
     {
         if(StepCount < 4)

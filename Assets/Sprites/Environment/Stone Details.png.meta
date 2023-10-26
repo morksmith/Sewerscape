@@ -1,99 +1,9 @@
 fileFormatVersion: 2
-guid: 1b4fe58f092e28341a453cbf2600ba83
+guid: 0ce8a713213f078428b964e66c543c05
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -3765716960944240052
-    second: Stone Details_0
-  - first:
-      213: 3440327929674013330
-    second: Stone Details_1
-  - first:
-      213: -8711858028045042163
-    second: Stone Details_2
-  - first:
-      213: -8056733882794330234
-    second: Stone Details_3
-  - first:
-      213: 8023100723431462756
-    second: Stone Details_4
-  - first:
-      213: -7444826923346653940
-    second: Stone Details_5
-  - first:
-      213: 1543553146702627043
-    second: Stone Details_6
-  - first:
-      213: 5168292196817491765
-    second: Stone Details_7
-  - first:
-      213: -5861060103403676920
-    second: Stone Details_8
-  - first:
-      213: -5012567001415304847
-    second: Stone Details_9
-  - first:
-      213: 833569343001538172
-    second: Stone Details_10
-  - first:
-      213: -1541800878815961594
-    second: Stone Details_11
-  - first:
-      213: 180907103559040381
-    second: Stone Details_12
-  - first:
-      213: -3771367184466017128
-    second: Stone Details_13
-  - first:
-      213: -1410949853603865778
-    second: Stone Details_0
-  - first:
-      213: -4670617504977390546
-    second: Stone Details_1
-  - first:
-      213: -8191948963692280585
-    second: Stone Details_2
-  - first:
-      213: 4924169929331865436
-    second: Stone Details_3
-  - first:
-      213: 6169521002678414807
-    second: Stone Details_4
-  - first:
-      213: 1542132178761136893
-    second: Stone Details_5
-  - first:
-      213: 1469948266594427964
-    second: Stone Details_6
-  - first:
-      213: -9161712626411131541
-    second: Stone Details_7
-  - first:
-      213: -2219475114798237481
-    second: Stone Details_8
-  - first:
-      213: 4336351821183261980
-    second: Stone Details_9
-  - first:
-      213: -1867016212911232650
-    second: Stone Details_10
-  - first:
-      213: -1220842058369120107
-    second: Stone Details_11
-  - first:
-      213: -3994250614425848722
-    second: Stone Details_12
-  - first:
-      213: -581905691212892035
-    second: Stone Details_13
-  - first:
-      213: 44915271784496398
-    second: Stone Details_14
-  - first:
-      213: -6533629065739713424
-    second: Stone Details_15
+  internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -114,6 +24,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -127,7 +38,7 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 0
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -152,10 +63,11 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 64
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: 4
     textureCompression: 1
@@ -167,9 +79,9 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 64
+    maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -178,10 +90,10 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 64
+    buildTarget: Server
+    maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -207,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4b5d0c659c4b6ce0800000000000000
-      internalID: -1410949853603865778
+      spriteID: 5747aa9e73c300d48a6959dafa787b33
+      internalID: 1217748545
       vertices: []
       indices: 
       edges: []
@@ -228,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e24f91e0022ae2fb0800000000000000
-      internalID: -4670617504977390546
+      spriteID: 7f39915748da94145aa3d88fa013e285
+      internalID: -1973084892
       vertices: []
       indices: 
       edges: []
@@ -249,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f40ef002d9505e80800000000000000
-      internalID: -8191948963692280585
+      spriteID: 3ae44998fae83a849b6735a8623fe363
+      internalID: -8640613
       vertices: []
       indices: 
       edges: []
@@ -270,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c577c7b167a265440800000000000000
-      internalID: 4924169929331865436
+      spriteID: 02807662a1ac15c4f95b0b6ea0658494
+      internalID: -692830333
       vertices: []
       indices: 
       edges: []
@@ -291,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7dd65f61aaa8e9550800000000000000
-      internalID: 6169521002678414807
+      spriteID: 06cdea03ff87d2045840894feb4c8c73
+      internalID: -1720074208
       vertices: []
       indices: 
       edges: []
@@ -312,8 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfab1c7cb01c66510800000000000000
-      internalID: 1542132178761136893
+      spriteID: d186fddd5edbf6c4ea507b144da801e6
+      internalID: -1073625330
       vertices: []
       indices: 
       edges: []
@@ -333,8 +245,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c34ef8c092e466410800000000000000
-      internalID: 1469948266594427964
+      spriteID: 9916b965dd318b14d858c2bae1839ea0
+      internalID: 530385711
       vertices: []
       indices: 
       edges: []
@@ -354,8 +266,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6dad8838ee0bd080800000000000000
-      internalID: -9161712626411131541
+      spriteID: bcc17af01109aea4692c08bf5a0ace0d
+      internalID: -2078497227
       vertices: []
       indices: 
       edges: []
@@ -375,8 +287,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d8b1a27427d231e0800000000000000
-      internalID: -2219475114798237481
+      spriteID: 94d173bfaeaff7e499be2072377b2ef3
+      internalID: 782859185
       vertices: []
       indices: 
       edges: []
@@ -396,8 +308,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1d1fb2a101dd2c30800000000000000
-      internalID: 4336351821183261980
+      spriteID: e64d604436eab5b44a0e9b9c9056870d
+      internalID: -1946007592
       vertices: []
       indices: 
       edges: []
@@ -417,8 +329,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 679e78f65a60716e0800000000000000
-      internalID: -1867016212911232650
+      spriteID: aae6de61a86ae5247a56cd1d108693ce
+      internalID: 1485074274
       vertices: []
       indices: 
       edges: []
@@ -438,8 +350,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5984d00cd92be0fe0800000000000000
-      internalID: -1220842058369120107
+      spriteID: 7283b14055dfb0043b527ff60796251e
+      internalID: 323166545
       vertices: []
       indices: 
       edges: []
@@ -459,8 +371,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e64f2478a329198c0800000000000000
-      internalID: -3994250614425848722
+      spriteID: 703f6c58f5e8e1347968c2db61be6b46
+      internalID: 2147344465
       vertices: []
       indices: 
       edges: []
@@ -480,8 +392,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d783a7e5bd7ace7f0800000000000000
-      internalID: -581905691212892035
+      spriteID: 79be3fb6cdeb21441842b147818b57f0
+      internalID: -682728422
       vertices: []
       indices: 
       edges: []
@@ -501,8 +413,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0d74b3a3329f9000800000000000000
-      internalID: 44915271784496398
+      spriteID: 53c0f47697354024f826c821b93cef84
+      internalID: -1738547744
       vertices: []
       indices: 
       edges: []
@@ -522,8 +434,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 074ca6a3bf2e355a0800000000000000
-      internalID: -6533629065739713424
+      spriteID: 14592bac4994a2c40b8bdc92c53860d6
+      internalID: 88337901
       vertices: []
       indices: 
       edges: []
@@ -538,6 +450,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Stone Details_13: -682728422
+      Stone Details_3: -692830333
+      Stone Details_12: 2147344465
+      Stone Details_15: 88337901
+      Stone Details_1: -1973084892
+      Stone Details_2: -8640613
+      Stone Details_9: -1946007592
+      Stone Details_4: -1720074208
+      Stone Details_11: 323166545
+      Stone Details_6: 530385711
+      Stone Details_0: 1217748545
+      Stone Details_5: -1073625330
+      Stone Details_10: 1485074274
+      Stone Details_7: -2078497227
+      Stone Details_8: 782859185
+      Stone Details_14: -1738547744
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
