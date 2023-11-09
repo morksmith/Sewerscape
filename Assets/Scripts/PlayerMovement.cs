@@ -126,8 +126,8 @@ public class PlayerMovement : MonoBehaviour
                 {
                     EnemyCheck();
                     targetPos = transform.position;
-                }                
-                StepCompleted = true;
+                }
+                
                 if (direction == 1)
                 {
                     CheckForInteractables(transform.position + new Vector3(1, 0, -1));
@@ -144,6 +144,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     CheckForInteractables(transform.position + new Vector3(0, -1, -1));
                 }
+                StepCompleted = true;
 
             }
             else
@@ -240,11 +241,13 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         RaycastHit2D eHit = Physics2D.Raycast(moveVector.origin, moveVector.direction);
-        if (eHit.transform.tag == "Fog")
+        if (eHit.transform != null && eHit.transform.tag == "Fog")
         {
+            Debug.Log("FOG!");
             OverEnemy = true;
             CurrentInteractive = null;
         }
+
     }
 
     

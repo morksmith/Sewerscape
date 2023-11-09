@@ -7,7 +7,7 @@ public class Gate : MonoBehaviour
 {
     public string UniqueID;
     public bool Open = false;
-    public BoxCollider Collider;
+    public BoxCollider2D Collider;
     public SpriteRenderer Sprite;
     public Sprite ClosedSprite;
     public Sprite OpenSprite;
